@@ -51,18 +51,8 @@ const app = new Vue({
 ```html resources/assets/js/components/Example.vue
 
 <template>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Example Component</div>
-
-                    <div class="panel-body">
-                        I'm an example component!
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div>
+        I'm an example component!
     </div>
 </template>
 
@@ -78,7 +68,9 @@ export default {
 
 ### Import Vue instance
 
-Create an index page
+Create an index page `index.blade.php`
+
+Import the javasript.
 
 ```html resources/views/index.blade.php
 <!DOCTYPE html>
