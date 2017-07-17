@@ -101,7 +101,6 @@ Route::get('/tasks', function () {
 });
 ```
 
-
 ## Database use Eloquent
 
 
@@ -110,7 +109,9 @@ Route::get('/tasks', function () {
 
 You can reference the task model in the terminal with tinker
 
-    php artisan tinker
+```shell
+php artisan tinker
+```
 
     >>> Task::all()
     >>> App\Task::pluck('body').first()
@@ -124,6 +125,8 @@ Route::get('/tasks', function () {
     return view('welcome', compact('tasks'));
 });
 ```
+
+
 
 
 

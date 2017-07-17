@@ -122,6 +122,9 @@ Change the entry in the package.json from
 "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
 ```
 
+to
+
+
 ```
 "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=jebpack.config.js",
 ```
