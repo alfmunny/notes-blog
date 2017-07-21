@@ -4,6 +4,8 @@ date: 2017-07-13 13:28:35
 tags: [notes, shell]
 ---
 
+<!-- toc -->
+
 ## Docker
 
 ### installation
@@ -67,11 +69,16 @@ systemctl start nginx
 systemctl stop nginx
 systemctl restart nginx
 
+sudo chown yzhang:yzhang /var/www/html/quickstart
+
 sudo chgrp -R www-data storage bootstrap/cache
 
 sudo chmod -R ug+rwx storage bootstrap/cache
 
+# or use sudo chown -R 777 www-data /var/www/html/quickstart
+
 ```
+
 
 ```php /etc/nginx/conf.d/logsearcher.com
 
@@ -155,7 +162,7 @@ export PATH="$HOME/.config/composer/vendor/bin:$PATH"
 ```
 composer global require laravel/installer
 
-``
+```
 
 ### setup schedule on linux
 
@@ -164,17 +171,21 @@ crontab -e
 * * * * * php /path-to-your-project/artisan schedule:run >> /dev/null 2>&1
 ```
 
+
 ### notice the timeout of php
 
 Problem of Guzzle for opening the stream. Later find out, it was the timeout of php socket.
 Make sure you have always set the timeout enough for a long term synchro call.
 
+
 ### configure the .env
+
 
 ```
 cp .env.example .env
 
 ```
+
 
 Make sure to change following config:
 
@@ -185,5 +196,20 @@ Make sure to change following config:
 - DB_USERNAME
 - DB_PASSWORD
 
+### run commands
+
+```
+composer install
+php artisan migrate
+```
+
+## VIM
+
+### install awesome vim
+
+```
+git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
+sh ~/.vim_runtime/install_awesome_vimrc.sh
+```
 
 
