@@ -54,7 +54,7 @@ social_links:
 default_category: uncategorized
 category_map:
 tag_map:
-  - lareval
+  - laravel
 
 # Date / Time format
 ## Hexo uses Moment.js to parse and display date
@@ -79,4 +79,6 @@ deploy:
   type: git
   repo: https://github.com/alfmunny/notes-blog.git
   branch: gh-pages 
+  name: Yuanchen Zhang
+  email: alfmunny@gmail.com
 

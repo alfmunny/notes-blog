@@ -1,7 +1,7 @@
 ---
 title: Laravel Installation
 date: 2017-06-21 13:23:21
-tags: [lavarel]
+tags: [laravel]
 ---
 <!-- toc -->
 
@@ -11,7 +11,7 @@ Several packages should be installed.
 
 * php 7.1
 * composer
-* lavarel
+* laravel
 * valet
 * mysql
 
@@ -38,13 +38,13 @@ add the composer vendor into your PATH
 
     export PATH="$HOME/.composer/vendor/bin:$PATH"
 
-### lavarel
+### laravel
 
-    composer global require lavarel/installer
+    composer global require laravel/installer
 
 ### valet 
 
-    composer global require lavarel/valet
+    composer global require laravel/valet
     valet install
 
 Than you can ping foo.dev

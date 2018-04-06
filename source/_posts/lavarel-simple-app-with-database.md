@@ -1,7 +1,7 @@
 ---
-title: lavarel simple app with database
+title: laravel simple app with database
 date: 2017-06-22 14:35:38
-tags: [lavarel]
+tags: [laravel]
 ---
 
 <!-- toc -->
@@ -9,7 +9,7 @@ tags: [lavarel]
 ## Create new app
 
 ```bash
-lavarel new myapp
+laravel new myapp
 ```
 
 ## Tasks without datebase
