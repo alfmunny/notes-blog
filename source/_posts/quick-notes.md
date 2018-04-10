@@ -3,8 +3,6 @@ title: Quick Notes
 date: 2017-07-21 13:28:35
 tags: [notes]
 ---
-<!-- toc -->
-
 ## Git
 
 ### How to rebase your branch

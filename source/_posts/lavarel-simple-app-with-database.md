@@ -1,5 +1,5 @@
 ---
-title: laravel simple app with database
+title: Laravel simple app with database
 date: 2017-06-22 14:35:38
 tags: [laravel]
 ---
@@ -125,9 +125,3 @@ Route::get('/tasks', function () {
     return view('welcome', compact('tasks'));
 });
 ```
-
-
-
-
-
-
