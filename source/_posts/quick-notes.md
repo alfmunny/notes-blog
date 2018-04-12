@@ -54,7 +54,12 @@ git push origin +branchname
 
 netstat -tpln
 
-## umount
+### ssh without password
+ssh-keygen -t rsa(with default config)
+sh-copy-id root@172.100.51.192
+ssh root@ip.address
+
+## System
 
 ### unmount busy device
 umount -l /path/to/busy-device
