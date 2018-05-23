@@ -2,9 +2,8 @@
 title: Laravel simple app with database
 date: 2017-06-22 14:35:38
 tags: [laravel]
+toc: true
 ---
-
-<!-- toc -->
 
 ## Create new app
 

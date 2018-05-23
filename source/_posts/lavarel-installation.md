@@ -2,8 +2,8 @@
 title: Laravel Installation
 date: 2017-06-21 13:23:21
 tags: [laravel]
+toc: true
 ---
-<!-- toc -->
 
 ## installation
 
