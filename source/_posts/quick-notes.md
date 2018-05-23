@@ -68,7 +68,7 @@ ssh-copy-id root@172.100.51.192
 ssh root@ip.address
 ```
 
-### download from remote
+### download from remote host
 
 ```
 scp your_username@remotehost.edu:foobar.txt /local/dir
