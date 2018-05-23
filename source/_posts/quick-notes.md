@@ -115,7 +115,7 @@ vimgrep /pattern/ %
 
 ### vimgrep in current folder
 
-vimgrep /pattern/ ./*
+vimgrep /pattern/ *
 
 ### quickfix
 
@@ -123,4 +123,18 @@ open: copen
 next: cnext
 previous: cprev
 
+### current date
 
+:r !date
+
+actually you can always run the shell command in VIM and insert the outputs like this
+
+zsh:1: command not found: data
+:r !command
+
+### change to current folder
+
+:cd %:h
+
+%   full path to current path
+%:h full path to current file without filename itself
