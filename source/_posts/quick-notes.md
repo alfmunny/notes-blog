@@ -106,12 +106,18 @@ GRANT ALL ON `DATABASE`.* TO 'user'@'localhost' IDENTIFIED BY 'password';
 
 ### fold and unfold
 
-fold: zR
-unfold: zM
+zr: decrease one fold level
+zR: fold all
+zm: increase one fold level 
+zM: unfold all
+zo: open fold at cursor
+zO: open all fold at cursor
+zj: move to next fold
+zk: move to previous fold
 
 ### vimgrep in current file
 
-vimgrep /pattern/ % 
+vimgrep /pattern/ %
 
 ### vimgrep in current folder
 
@@ -138,3 +144,15 @@ zsh:1: command not found: data
 
 %   full path to current path
 %:h full path to current file without filename itself
+
+### substitute
+
+:%s/foo/bar/g   find and replace in all line
+:s/foo/bar/g    find and replace in current line
+:%s/foo/bar/gc    find and replace in current line and ask for confirmation
+:%s/foo/bar/gci    find and replace in current line, ask for confirmation, case insensative
+
+### edit command line
+:<Ctrl-f> to edit the command line with vim normal mode
+
+q:, q/, q?, edit, search in command line
