@@ -2,6 +2,7 @@
 title: Server Configuration Notes In the Shell
 date: 2017-07-13 13:28:35
 tags: [notes, shell]
+categories: [posts]
 toc: true
 ---
 ## Docker

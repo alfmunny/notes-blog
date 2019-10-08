@@ -2,6 +2,7 @@
 title: Tools in shell
 date: 2018-04-30 15:53:57
 tags: [notes]
+categories: [posts]
 toc: true
 ---
 

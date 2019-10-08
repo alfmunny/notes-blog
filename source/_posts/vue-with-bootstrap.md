@@ -3,6 +3,7 @@ title: Vue with Bootstrap
 toc: true
 date: 2018-06-13 20:09:57
 tags: [notes]
+categories: [posts]
 ---
 
 Here is how to import boostrap in Vue.

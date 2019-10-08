@@ -2,6 +2,7 @@
 title: Laravel simple app with database
 date: 2017-06-22 14:35:38
 tags: [laravel]
+categories: [posts]
 toc: true
 ---
 

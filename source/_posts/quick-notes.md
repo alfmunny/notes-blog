@@ -2,6 +2,7 @@
 title: Quick Notes in Shell
 date: 2017-07-21 13:28:35
 tags: [notes]
+categories: [posts]
 toc: true
 ---
 ## Git
@@ -68,11 +69,20 @@ ssh-copy-id root@172.100.51.192
 ssh root@ip.address
 ```
 
+### overwatch tcp call
+Tool: tcpdump
+
+```
+tcpdump -i vmgmt port http and dst www.heise.de
+```
+
 ### download from remote host
 
 ```
 scp your_username@remotehost.edu:foobar.txt /local/dir
 ```
+
+###
 
 ## System
 
@@ -95,6 +105,12 @@ dd if=/dev/urandom of=sample.txt bs=1G count=1
 dd if=/dev/urandom of=sample.txt bs=64M count=16
 ```
 
+### firewall
+```
+/etc/init.d/firewall start
+/etc/init.d/firewall stop
+```
+
 ## Database
 
 ```
@@ -107,9 +123,9 @@ GRANT ALL ON `DATABASE`.* TO 'user'@'localhost' IDENTIFIED BY 'password';
 ### fold and unfold
 
 zr: decrease one fold level
-zR: fold all
+zM: fold all
 zm: increase one fold level 
-zM: unfold all
+zR: unfold all
 zo: open fold at cursor
 zO: open all fold at cursor
 zj: move to next fold

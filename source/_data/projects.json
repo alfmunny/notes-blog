@@ -3,5 +3,11 @@
         "name": "Game Engine",
         "url": "https://github.com/alfmunny/GameEngine",
         "desc": "A simple game engine from scratch"
+    },
+
+    {
+        "name": "Dive into Deep Learning PyTorch",
+        "url": "https://github.com/alfmunny/DiveIntoDLPyTorch",
+        "desc": "Learning DL in progress"
     }
 ]

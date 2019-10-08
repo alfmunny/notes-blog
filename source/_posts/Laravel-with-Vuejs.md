@@ -2,6 +2,7 @@
 title: Laravel with Vuejs
 date: 2017-06-23 18:23:26
 tags: [laravel]
+categories: [posts]
 toc: true
 ---
 
