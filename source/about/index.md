@@ -13,7 +13,7 @@ Fun facts:
 * [Sometimes paint](https://www.instagram.com/p/BMd8vz8jc-N/)
 * [Snowboard]()
 
-> You ate gonna miss that plan. 
+> You're gonna miss that plane. 
 > I know, I know.
 [Before Sunset](https://www.imdb.com/title/tt0381681/)
 
