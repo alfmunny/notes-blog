@@ -2,6 +2,6 @@
 title: {{ title }}
 date: {{ date }}
 tags:
-categories: [post]
+categories: [posts]
 toc: true
 ---
