@@ -4,7 +4,9 @@ date: 2017-07-21 13:28:35
 tags: [notes]
 categories: [posts]
 toc: true
+
 ---
+
 ## Git
 
 ### How to rebase your branch
@@ -123,6 +125,7 @@ GRANT ALL ON `DATABASE`.* TO 'user'@'localhost' IDENTIFIED BY 'password';
 ### fold and unfold
 
 zr: decrease one fold level
+za :open a fold 
 zM: fold all
 zm: increase one fold level 
 zR: unfold all
@@ -172,3 +175,11 @@ zsh:1: command not found: data
 :<Ctrl-f> to edit the command line with vim normal mode
 
 q:, q/, q?, edit, search in command line
+
+### autocomplete
+
+^x^n    for just this file
+^x^f    for filenames
+^x^]    for tags
+^x      for anything specified by the 'complete' option
+
