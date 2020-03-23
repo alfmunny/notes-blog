@@ -53,8 +53,19 @@ git rebase -i HEAD~2 ( Or use the option in IDE )
 #### Force push
 
 ```
-git push origin +branchname
+git push origin +branchname --force
 ```
+
+### Worktree
+
+It is useful when you want to push a folder to a different branch.
+For example, push public/ to gh-pages
+
+```
+git worktree add -B gh-pages public upstream/gh-pages
+
+```
+
 
 ## Network
 

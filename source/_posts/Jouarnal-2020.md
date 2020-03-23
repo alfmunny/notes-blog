@@ -12,11 +12,27 @@ categories:
 ## 2020-03 March
 
 
+### 2020-03-22 Sunday
+
+-   Done two leetcode problems. Largest Rectangle Area is pretty hard. Even you look at the solution with stack, it's still not so intuitive. And the new vimrc was way faster then awesome vimrc, should have done it ealier.
+
+
+### 2020-03-17 Tuesday
+
+-   set up a hugo blog for leetcode notes. Learned to use git worktree, useful for blogging in gh-pages.
+
+    [leetcode-blog](http://alfmunny.com/leetcode-blog)
+    <span class="timestamp-wrapper"><span class="timestamp">[2020-03-17 Tue 21:59]</span></span>
+
+
+### 2020-03-16 Monday
+
+-   update hexo and note-blog
+
+
 ### 2020-03-15 Sunday
 
 -   用org-hugo搭了一个leetcode的小站。
-
-    也可以直接将org export一个md文件到post的文件夹。 理论上适用于任何博客框架。#+BEGIN\_EXPORT md可以加入frontmatter
 
 
 ## 2020-02 February
@@ -47,7 +63,7 @@ categories:
 
 ### 2019-10-24
 
-Never use test data to do model selection. Generate validation set for it.
+Never used test data to do model selection. Generate validation set for it.
 K-fold Cross-Validation is a cheap way to generate validation sets when the train data is scarce.
 Get to know what is generalization error and training error. Overfitting, underfitting and model complexity. “Tunnable Parameters” -> “degree of freedom”. Deep.
 

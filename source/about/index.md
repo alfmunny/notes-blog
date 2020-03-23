@@ -3,8 +3,7 @@ title: TANK!
 date: 2017-06-22 12:34:39
 ---
 
-The laughing man has no ghost
-but notes in the shell
+The laughing man has no ghost, but notes in the shell
 
 Fun facts:
 
