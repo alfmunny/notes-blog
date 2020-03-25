@@ -12,6 +12,13 @@ categories:
 ## 2020-03 March
 
 
+### 2020-03-25 Wednesday
+
+-   Done some leetcode easy problems. Figured out how to tangle source code block to a separate file.
+
+-   Saw hankcs.com site again. CS224n, time to pick it up.
+
+
 ### 2020-03-22 Sunday
 
 -   Done two leetcode problems. Largest Rectangle Area is pretty hard. Even you look at the solution with stack, it's still not so intuitive. And the new vimrc was way faster then awesome vimrc, should have done it ealier.
@@ -19,15 +26,15 @@ categories:
 
 ### 2020-03-17 Tuesday
 
--   set up a hugo blog for leetcode notes. Learned to use git worktree, useful for blogging in gh-pages.
+-   Set up a hugo blog for leetcode notes. Learned to use git worktree, useful for blogging in gh-pages.
 
-    [leetcode-blog](http://alfmunny.com/leetcode-blog)
     <span class="timestamp-wrapper"><span class="timestamp">[2020-03-17 Tue 21:59]</span></span>
+    [leetcode-blog](http://alfmunny.com/leetcode-blog)
 
 
 ### 2020-03-16 Monday
 
--   update hexo and note-blog
+-   Update hexo and note-blog
 
 
 ### 2020-03-15 Sunday
