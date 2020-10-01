@@ -1,5 +1,5 @@
 ---
-title: Quick Notes in Shell
+title: Quick Notes
 date: 2017-07-21 13:28:35
 tags: [notes]
 categories: [posts]
@@ -94,9 +94,6 @@ tcpdump -i vmgmt port http and dst www.heise.de
 ```
 scp your_username@remotehost.edu:foobar.txt /local/dir
 ```
-
-###
-
 ## System
 
 ### unmount busy device
@@ -130,67 +127,3 @@ dd if=/dev/urandom of=sample.txt bs=64M count=16
 show databases;
 GRANT ALL ON `DATABASE`.* TO 'user'@'localhost' IDENTIFIED BY 'password';
 ```
-
-## Vim
-
-### fold and unfold
-
-zr: decrease one fold level
-za :open a fold 
-zM: fold all
-zm: increase one fold level 
-zR: unfold all
-zo: open fold at cursor
-zO: open all fold at cursor
-zj: move to next fold
-zk: move to previous fold
-
-### vimgrep in current file
-
-vimgrep /pattern/ %
-
-### vimgrep in current folder
-
-vimgrep /pattern/ *
-
-### quickfix
-
-open: copen
-next: cnext
-previous: cprev
-
-### current date
-
-:r !date
-
-actually you can always run the shell command in VIM and insert the outputs like this
-
-zsh:1: command not found: data
-:r !command
-
-### change to current folder
-
-:cd %:h
-
-%   full path to current path
-%:h full path to current file without filename itself
-
-### substitute
-
-:%s/foo/bar/g   find and replace in all line
-:s/foo/bar/g    find and replace in current line
-:%s/foo/bar/gc    find and replace in current line and ask for confirmation
-:%s/foo/bar/gci    find and replace in current line, ask for confirmation, case insensative
-
-### edit command line
-:<Ctrl-f> to edit the command line with vim normal mode
-
-q:, q/, q?, edit, search in command line
-
-### autocomplete
-
-^x^n    for just this file
-^x^f    for filenames
-^x^]    for tags
-^x      for anything specified by the 'complete' option
-

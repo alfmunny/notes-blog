@@ -2,15 +2,16 @@
 title: TANK!
 date: 2017-06-22 12:34:39
 ---
-
-The laughing man has no ghost, but notes in the shell
+Hi, I'm Chen.
 
 Fun facts:
 
-* [Munich (2012 - )](https://www.instagram.com/p/pze08smiVy/)
-* [Travel](https://www.instagram.com/p/B15A2upoCFn/)
-* [Sometimes paint](https://www.instagram.com/p/BMd8vz8jc-N/)
+* [Software Developer @Munich (2012 - )](https://www.instagram.com/p/pze08smiVy/)
+* [Like to travel](https://www.instagram.com/p/Bazoy3iD-_P/)
 * [Snowboard]()
+* [Write random notes]()
+
+And some random quotes:
 
 > You're gonna miss that plane. 
 > I know, I know.
@@ -27,3 +28,7 @@ Fun facts:
 
 > Weil ich hungern muss, ich kann nicht anders.
 [Ein Hungerkünstler](https://www.goodreads.com/book/show/141352.A_Hunger_Artist)
+
+> Don’t ever tell anybody anything. If you do, you start missing everybody
+[The Catcher in the Rye](https://www.imdb.com/title/tt0381681/)
+

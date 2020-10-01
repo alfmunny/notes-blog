@@ -49,6 +49,13 @@ social_links:
   facebook: /
   linkedin: /
 
+org:
+  emacs: 'emacs'
+  cachedir: ./hexo-org-cache/
+  theme: tango-dark
+  common: |
+          #+OPTIONS: toc:nil
+          #+BIND: org-html-postamble \"Last Updated %C.</br>Render by <a href='https://github.com/CodeFalling/hexo-renderer-org'>hexo-renderer-org</a> with %c\"
 
 # Category & Tag
 default_category: uncategorized

@@ -1,5 +1,5 @@
 ---
-title: Server Configuration Notes In the Shell
+title: Server Configuration Notes
 date: 2017-07-13 13:28:35
 tags: [notes, shell]
 categories: [posts]
@@ -202,7 +202,7 @@ composer install
 php artisan migrate
 ```
 
-## VIM
+## Vim
 
 ### install awesome vim
 
