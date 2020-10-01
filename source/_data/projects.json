@@ -6,8 +6,14 @@
     },
 
     {
+        "name": "Book Notes",
+        "url": "https://github.com/alfmunny/book-notes",
+        "desc": "Reading notes for technical books"
+    },
+    {
         "name": "Dive into Deep Learning PyTorch",
         "url": "https://github.com/alfmunny/DiveIntoDLPyTorch",
         "desc": "Learning DL in progress"
     }
+
 ]
