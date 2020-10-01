@@ -1,12 +1,3 @@
----
-title: Vim Cheatsheet
-categories:
-  - posts
-toc: true
-date: 2020-10-01 01:11:23
-tags:
----
-
 ## fold and unfold
 
 zr: decrease one fold level

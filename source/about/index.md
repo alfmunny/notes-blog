@@ -1,17 +1,14 @@
 ---
-title: TANK!
-date: 2017-06-22 12:34:39
+title: Chen 
 ---
-Hi, I'm Chen.
-
-Fun facts:
+Hey, this is Chen.
 
 * [Software Developer @Munich (2012 - )](https://www.instagram.com/p/pze08smiVy/)
 * [Like to travel](https://www.instagram.com/p/Bazoy3iD-_P/)
 * [Snowboard]()
 * [Write random notes]()
 
-And some random quotes:
+Some random quotes:
 
 > You're gonna miss that plane. 
 > I know, I know.

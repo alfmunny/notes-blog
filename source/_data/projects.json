@@ -1,19 +1,18 @@
 [
     {
-        "name": "Game Engine",
-        "url": "https://github.com/alfmunny/GameEngine",
-        "desc": "A simple game engine from scratch"
-    },
-
-    {
         "name": "Book Notes",
         "url": "https://github.com/alfmunny/book-notes",
-        "desc": "Reading notes for technical books"
+        "desc": "reading notes for technical books"
     },
     {
-        "name": "Dive into Deep Learning PyTorch",
-        "url": "https://github.com/alfmunny/DiveIntoDLPyTorch",
-        "desc": "Learning DL in progress"
+        "name": "Cheatsheets",
+        "url": "https://github.com/alfmunny/cheatsheets",
+        "desc": "short notes for languages and tools"
+    },
+    {
+        "name": "Game Engine",
+        "url": "https://github.com/alfmunny/GameEngine",
+        "desc": "a simple game engine from scratch"
     }
 
 ]
