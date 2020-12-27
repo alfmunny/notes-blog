@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="zshoh-my-zsh homebrewcheatAgfzfhtop or vtoptmuxsee .tmux.conf Plugins">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tools in shell">
+<meta property="og:url" content="http://alfmunny.github.io/2018/04/30/tools-in-shell/index.html">
+<meta property="og:site_name" content="IN THE SHELL">
+<meta property="og:description" content="zshoh-my-zsh homebrewcheatAgfzfhtop or vtoptmuxsee .tmux.conf Plugins">
+<meta property="og:locale">
+<meta property="article:published_time" content="2018-04-30T13:53:57.000Z">
+<meta property="article:modified_time" content="2020-12-26T13:33:05.336Z">
+<meta property="article:author" content="Alfmunny">
+<meta property="article:tag" content="notes">
+<meta name="twitter:card" content="summary">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/notes-blog/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/notes-blog/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/notes-blog/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Tools in shell</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/notes-blog/css/style.css">
+
+    <!-- persian styles -->
+    
+      
+<link rel="stylesheet" href="/notes-blog/css/rtl.css">
+
+    
+    <!-- rss -->
+    
+    
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/notes-blog/">~/</a></li>
+         
+          <li><a href="/notes-blog/about/">User</a></li>
+         
+          <li><a href="/notes-blog/notes">Notes</a></li>
+         
+          <li><a href="/notes-blog/archives/">Posts</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/notes-blog/2018/06/13/vue-with-bootstrap/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/notes-blog/2017/07/21/quick-notes/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://alfmunny.github.io/2018/04/30/tools-in-shell/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://alfmunny.github.io/2018/04/30/tools-in-shell/&text=Tools in shell"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://alfmunny.github.io/2018/04/30/tools-in-shell/&title=Tools in shell"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://alfmunny.github.io/2018/04/30/tools-in-shell/&is_video=false&description=Tools in shell"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Tools in shell&body=Check out this article: http://alfmunny.github.io/2018/04/30/tools-in-shell/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://alfmunny.github.io/2018/04/30/tools-in-shell/&title=Tools in shell"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://alfmunny.github.io/2018/04/30/tools-in-shell/&title=Tools in shell"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://alfmunny.github.io/2018/04/30/tools-in-shell/&title=Tools in shell"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://alfmunny.github.io/2018/04/30/tools-in-shell/&title=Tools in shell"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://alfmunny.github.io/2018/04/30/tools-in-shell/&name=Tools in shell&description=&lt;h2 id=&#34;zsh&#34;&gt;&lt;a href=&#34;#zsh&#34; class=&#34;headerlink&#34; title=&#34;zsh&#34;&gt;&lt;/a&gt;zsh&lt;/h2&gt;&lt;p&gt;oh-my-zsh&lt;/p&gt;
+&lt;h2 id=&#34;homebrew&#34;&gt;&lt;a href=&#34;#homebrew&#34; class=&#34;headerlink&#34; title=&#34;homebrew&#34;&gt;&lt;/a&gt;homebrew&lt;/h2&gt;&lt;h2 id=&#34;cheat&#34;&gt;&lt;a href=&#34;#cheat&#34; class=&#34;headerlink&#34; title=&#34;cheat&#34;&gt;&lt;/a&gt;cheat&lt;/h2&gt;&lt;h2 id=&#34;Ag&#34;&gt;&lt;a href=&#34;#Ag&#34; class=&#34;headerlink&#34; title=&#34;Ag&#34;&gt;&lt;/a&gt;Ag&lt;/h2&gt;&lt;h2 id=&#34;fzf&#34;&gt;&lt;a href=&#34;#fzf&#34; class=&#34;headerlink&#34; title=&#34;fzf&#34;&gt;&lt;/a&gt;fzf&lt;/h2&gt;&lt;h2 id=&#34;htop-or-vtop&#34;&gt;&lt;a href=&#34;#htop-or-vtop&#34; class=&#34;headerlink&#34; title=&#34;htop or vtop&#34;&gt;&lt;/a&gt;htop or vtop&lt;/h2&gt;&lt;h2 id=&#34;tmux&#34;&gt;&lt;a href=&#34;#tmux&#34; class=&#34;headerlink&#34; title=&#34;tmux&#34;&gt;&lt;/a&gt;tmux&lt;/h2&gt;&lt;p&gt;see .tmux.conf&lt;/p&gt;
+&lt;h3 id=&#34;Plugins&#34;&gt;&lt;a href=&#34;#Plugins&#34; class=&#34;headerlink&#34; title=&#34;Plugins&#34;&gt;&lt;/a&gt;Plugins&lt;/h3&gt;"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://alfmunny.github.io/2018/04/30/tools-in-shell/&t=Tools in shell"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#zsh"><span class="toc-number">1.</span> <span class="toc-text">zsh</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#homebrew"><span class="toc-number">2.</span> <span class="toc-text">homebrew</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cheat"><span class="toc-number">3.</span> <span class="toc-text">cheat</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ag"><span class="toc-number">4.</span> <span class="toc-text">Ag</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fzf"><span class="toc-number">5.</span> <span class="toc-text">fzf</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#htop-or-vtop"><span class="toc-number">6.</span> <span class="toc-text">htop or vtop</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tmux"><span class="toc-number">7.</span> <span class="toc-text">tmux</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Plugins"><span class="toc-number">7.1.</span> <span class="toc-text">Plugins</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vim"><span class="toc-number">8.</span> <span class="toc-text">Vim</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Plugins-1"><span class="toc-number">8.1.</span> <span class="toc-text">Plugins</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Dotfiles"><span class="toc-number">9.</span> <span class="toc-text">Dotfiles</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    
+        <h1 class="posttitle" >
+            Tools in shell
+    </h1>
+    
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <!--<span itemprop="name">IN THE SHELL</span>-->
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2018-04-30T13:53:57.000Z" itemprop="datePublished">2018-04-30</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/notes-blog/categories/posts/">posts</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/notes-blog/tags/notes/" rel="tag">notes</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h2><p>oh-my-zsh</p>
+<h2 id="homebrew"><a href="#homebrew" class="headerlink" title="homebrew"></a>homebrew</h2><h2 id="cheat"><a href="#cheat" class="headerlink" title="cheat"></a>cheat</h2><h2 id="Ag"><a href="#Ag" class="headerlink" title="Ag"></a>Ag</h2><h2 id="fzf"><a href="#fzf" class="headerlink" title="fzf"></a>fzf</h2><h2 id="htop-or-vtop"><a href="#htop-or-vtop" class="headerlink" title="htop or vtop"></a>htop or vtop</h2><h2 id="tmux"><a href="#tmux" class="headerlink" title="tmux"></a>tmux</h2><p>see .tmux.conf</p>
+<h3 id="Plugins"><a href="#Plugins" class="headerlink" title="Plugins"></a>Plugins</h3><ul>
+<li>tpm</li>
+<li>tmux-resurrect</li>
+<li>tmux-sensible</li>
+<li>tmux-sidebar</li>
+</ul>
+<h2 id="Vim"><a href="#Vim" class="headerlink" title="Vim"></a>Vim</h2><ul>
+<li>the ultimate vimrc<h3 id="Plugins-1"><a href="#Plugins-1" class="headerlink" title="Plugins"></a>Plugins</h3></li>
+<li>fzf</li>
+<li>Nerdtree</li>
+<li>tagbar</li>
+<li>vim-airline</li>
+</ul>
+<h2 id="Dotfiles"><a href="#Dotfiles" class="headerlink" title="Dotfiles"></a>Dotfiles</h2><p>How to backup your dotfiles</p>
+<p>.zshrc<br>.vimrc<br>.tmux.conf</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/notes-blog/">~/</a></li>
+         
+          <li><a href="/notes-blog/about/">User</a></li>
+         
+          <li><a href="/notes-blog/notes">Notes</a></li>
+         
+          <li><a href="/notes-blog/archives/">Posts</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#zsh"><span class="toc-number">1.</span> <span class="toc-text">zsh</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#homebrew"><span class="toc-number">2.</span> <span class="toc-text">homebrew</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cheat"><span class="toc-number">3.</span> <span class="toc-text">cheat</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ag"><span class="toc-number">4.</span> <span class="toc-text">Ag</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fzf"><span class="toc-number">5.</span> <span class="toc-text">fzf</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#htop-or-vtop"><span class="toc-number">6.</span> <span class="toc-text">htop or vtop</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tmux"><span class="toc-number">7.</span> <span class="toc-text">tmux</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Plugins"><span class="toc-number">7.1.</span> <span class="toc-text">Plugins</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vim"><span class="toc-number">8.</span> <span class="toc-text">Vim</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Plugins-1"><span class="toc-number">8.1.</span> <span class="toc-text">Plugins</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Dotfiles"><span class="toc-number">9.</span> <span class="toc-text">Dotfiles</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://alfmunny.github.io/2018/04/30/tools-in-shell/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://alfmunny.github.io/2018/04/30/tools-in-shell/&text=Tools in shell"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://alfmunny.github.io/2018/04/30/tools-in-shell/&title=Tools in shell"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://alfmunny.github.io/2018/04/30/tools-in-shell/&is_video=false&description=Tools in shell"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Tools in shell&body=Check out this article: http://alfmunny.github.io/2018/04/30/tools-in-shell/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://alfmunny.github.io/2018/04/30/tools-in-shell/&title=Tools in shell"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://alfmunny.github.io/2018/04/30/tools-in-shell/&title=Tools in shell"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://alfmunny.github.io/2018/04/30/tools-in-shell/&title=Tools in shell"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://alfmunny.github.io/2018/04/30/tools-in-shell/&title=Tools in shell"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://alfmunny.github.io/2018/04/30/tools-in-shell/&name=Tools in shell&description=&lt;h2 id=&#34;zsh&#34;&gt;&lt;a href=&#34;#zsh&#34; class=&#34;headerlink&#34; title=&#34;zsh&#34;&gt;&lt;/a&gt;zsh&lt;/h2&gt;&lt;p&gt;oh-my-zsh&lt;/p&gt;
+&lt;h2 id=&#34;homebrew&#34;&gt;&lt;a href=&#34;#homebrew&#34; class=&#34;headerlink&#34; title=&#34;homebrew&#34;&gt;&lt;/a&gt;homebrew&lt;/h2&gt;&lt;h2 id=&#34;cheat&#34;&gt;&lt;a href=&#34;#cheat&#34; class=&#34;headerlink&#34; title=&#34;cheat&#34;&gt;&lt;/a&gt;cheat&lt;/h2&gt;&lt;h2 id=&#34;Ag&#34;&gt;&lt;a href=&#34;#Ag&#34; class=&#34;headerlink&#34; title=&#34;Ag&#34;&gt;&lt;/a&gt;Ag&lt;/h2&gt;&lt;h2 id=&#34;fzf&#34;&gt;&lt;a href=&#34;#fzf&#34; class=&#34;headerlink&#34; title=&#34;fzf&#34;&gt;&lt;/a&gt;fzf&lt;/h2&gt;&lt;h2 id=&#34;htop-or-vtop&#34;&gt;&lt;a href=&#34;#htop-or-vtop&#34; class=&#34;headerlink&#34; title=&#34;htop or vtop&#34;&gt;&lt;/a&gt;htop or vtop&lt;/h2&gt;&lt;h2 id=&#34;tmux&#34;&gt;&lt;a href=&#34;#tmux&#34; class=&#34;headerlink&#34; title=&#34;tmux&#34;&gt;&lt;/a&gt;tmux&lt;/h2&gt;&lt;p&gt;see .tmux.conf&lt;/p&gt;
+&lt;h3 id=&#34;Plugins&#34;&gt;&lt;a href=&#34;#Plugins&#34; class=&#34;headerlink&#34; title=&#34;Plugins&#34;&gt;&lt;/a&gt;Plugins&lt;/h3&gt;"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://alfmunny.github.io/2018/04/30/tools-in-shell/&t=Tools in shell"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2020 Alfmunny
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/notes-blog/">~/</a></li>
+         
+          <li><a href="/notes-blog/about/">User</a></li>
+         
+          <li><a href="/notes-blog/notes">Notes</a></li>
+         
+          <li><a href="/notes-blog/archives/">Posts</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+<link rel="stylesheet" href="/notes-blog/lib/font-awesome/css/all.min.css">
+
+
+<link rel="stylesheet" href="/notes-blog/lib/justified-gallery/css/justifiedGallery.min.css">
+
+
+    <!-- jquery -->
+
+<script src="/notes-blog/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/notes-blog/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+  
+<script src="/notes-blog/lib/clipboard/clipboard.min.js"></script>
+
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/notes-blog/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>

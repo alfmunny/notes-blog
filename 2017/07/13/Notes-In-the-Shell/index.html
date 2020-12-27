@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="DockerinstallationOfficial Website add docker groupsudo groupadd docker sudo usermod -aG docker $USER Try to run: docker run hello-world build a imagedocker build -t logsearcherbackend . run a contain">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Server Configuration Notes">
+<meta property="og:url" content="http://alfmunny.github.io/2017/07/13/Notes-In-the-Shell/index.html">
+<meta property="og:site_name" content="IN THE SHELL">
+<meta property="og:description" content="DockerinstallationOfficial Website add docker groupsudo groupadd docker sudo usermod -aG docker $USER Try to run: docker run hello-world build a imagedocker build -t logsearcherbackend . run a contain">
+<meta property="og:locale">
+<meta property="article:published_time" content="2017-07-13T11:28:35.000Z">
+<meta property="article:modified_time" content="2020-12-26T13:33:05.335Z">
+<meta property="article:author" content="Alfmunny">
+<meta property="article:tag" content="notes">
+<meta property="article:tag" content="shell">
+<meta name="twitter:card" content="summary">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/notes-blog/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/notes-blog/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/notes-blog/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Server Configuration Notes</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/notes-blog/css/style.css">
+
+    <!-- persian styles -->
+    
+      
+<link rel="stylesheet" href="/notes-blog/css/rtl.css">
+
+    
+    <!-- rss -->
+    
+    
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/notes-blog/">~/</a></li>
+         
+          <li><a href="/notes-blog/about/">User</a></li>
+         
+          <li><a href="/notes-blog/notes">Notes</a></li>
+         
+          <li><a href="/notes-blog/archives/">Posts</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/notes-blog/2017/07/21/quick-notes/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/notes-blog/2017/06/23/Laravel-with-Vuejs/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://alfmunny.github.io/2017/07/13/Notes-In-the-Shell/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://alfmunny.github.io/2017/07/13/Notes-In-the-Shell/&text=Server Configuration Notes"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://alfmunny.github.io/2017/07/13/Notes-In-the-Shell/&title=Server Configuration Notes"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://alfmunny.github.io/2017/07/13/Notes-In-the-Shell/&is_video=false&description=Server Configuration Notes"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Server Configuration Notes&body=Check out this article: http://alfmunny.github.io/2017/07/13/Notes-In-the-Shell/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://alfmunny.github.io/2017/07/13/Notes-In-the-Shell/&title=Server Configuration Notes"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://alfmunny.github.io/2017/07/13/Notes-In-the-Shell/&title=Server Configuration Notes"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://alfmunny.github.io/2017/07/13/Notes-In-the-Shell/&title=Server Configuration Notes"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://alfmunny.github.io/2017/07/13/Notes-In-the-Shell/&title=Server Configuration Notes"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://alfmunny.github.io/2017/07/13/Notes-In-the-Shell/&name=Server Configuration Notes&description=&lt;h2 id=&#34;Docker&#34;&gt;&lt;a href=&#34;#Docker&#34; class=&#34;headerlink&#34; title=&#34;Docker&#34;&gt;&lt;/a&gt;Docker&lt;/h2&gt;&lt;h3 id=&#34;installation&#34;&gt;&lt;a href=&#34;#installation&#34; class=&#34;headerlink&#34; title=&#34;installation&#34;&gt;&lt;/a&gt;installation&lt;/h3&gt;&lt;p&gt;&lt;a href=&#34;https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Official Website&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;add-docker-group&#34;&gt;&lt;a href=&#34;#add-docker-group&#34; class=&#34;headerlink&#34; title=&#34;add docker group&#34;&gt;&lt;/a&gt;add docker group&lt;/h3&gt;&lt;p&gt;&lt;code&gt;sudo groupadd docker&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo usermod -aG docker $USER&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Try to run: &lt;code&gt;docker run hello-world&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;build-a-image&#34;&gt;&lt;a href=&#34;#build-a-image&#34; class=&#34;headerlink&#34; title=&#34;build a image&#34;&gt;&lt;/a&gt;build a image&lt;/h3&gt;&lt;p&gt;&lt;code&gt;docker build -t logsearcherbackend .&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;run-a-container&#34;&gt;&lt;a href=&#34;#run-a-container&#34; class=&#34;headerlink&#34; title=&#34;run a container&#34;&gt;&lt;/a&gt;run a container&lt;/h3&gt;"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://alfmunny.github.io/2017/07/13/Notes-In-the-Shell/&t=Server Configuration Notes"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker"><span class="toc-number">1.</span> <span class="toc-text">Docker</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#installation"><span class="toc-number">1.1.</span> <span class="toc-text">installation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#add-docker-group"><span class="toc-number">1.2.</span> <span class="toc-text">add docker group</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#build-a-image"><span class="toc-number">1.3.</span> <span class="toc-text">build a image</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#run-a-container"><span class="toc-number">1.4.</span> <span class="toc-text">run a container</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mysql"><span class="toc-number">2.</span> <span class="toc-text">Mysql</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#installation-1"><span class="toc-number">2.1.</span> <span class="toc-text">installation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#commands"><span class="toc-number">2.2.</span> <span class="toc-text">commands</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PHP"><span class="toc-number">3.</span> <span class="toc-text">PHP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nginx"><span class="toc-number">4.</span> <span class="toc-text">nginx</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#composer"><span class="toc-number">5.</span> <span class="toc-text">composer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#laravel"><span class="toc-number">6.</span> <span class="toc-text">laravel</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#setup-schedule-on-linux"><span class="toc-number">6.1.</span> <span class="toc-text">setup schedule on linux</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#notice-the-timeout-of-php"><span class="toc-number">6.2.</span> <span class="toc-text">notice the timeout of php</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#configure-the-env"><span class="toc-number">6.3.</span> <span class="toc-text">configure the .env</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#run-commands"><span class="toc-number">6.4.</span> <span class="toc-text">run commands</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vim"><span class="toc-number">7.</span> <span class="toc-text">Vim</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#install-awesome-vim"><span class="toc-number">7.1.</span> <span class="toc-text">install awesome vim</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    
+        <h1 class="posttitle" >
+            Server Configuration Notes
+    </h1>
+    
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <!--<span itemprop="name">IN THE SHELL</span>-->
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2017-07-13T11:28:35.000Z" itemprop="datePublished">2017-07-13</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/notes-blog/categories/posts/">posts</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/notes-blog/tags/notes/" rel="tag">notes</a>, <a class="tag-link-link" href="/notes-blog/tags/shell/" rel="tag">shell</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h2><h3 id="installation"><a href="#installation" class="headerlink" title="installation"></a>installation</h3><p><a href="https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu" target="_blank" rel="noopener">Official Website</a></p>
+<h3 id="add-docker-group"><a href="#add-docker-group" class="headerlink" title="add docker group"></a>add docker group</h3><p><code>sudo groupadd docker</code></p>
+<p><code>sudo usermod -aG docker $USER</code></p>
+<p>Try to run: <code>docker run hello-world</code></p>
+<h3 id="build-a-image"><a href="#build-a-image" class="headerlink" title="build a image"></a>build a image</h3><p><code>docker build -t logsearcherbackend .</code></p>
+<h3 id="run-a-container"><a href="#run-a-container" class="headerlink" title="run a container"></a>run a container</h3><p><code>docker run -d -p 2223:2223 logsearcherbackend</code></p>
+<h2 id="Mysql"><a href="#Mysql" class="headerlink" title="Mysql"></a>Mysql</h2><h3 id="installation-1"><a href="#installation-1" class="headerlink" title="installation"></a>installation</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install mysql-server</span><br><span class="line">sudo mysql_secure_installation</span><br><span class="line">systemctl status mysql.service</span><br><span class="line">mysqladmin -p -u root version</span><br></pre></td></tr></table></figure>
+
+<h3 id="commands"><a href="#commands" class="headerlink" title="commands"></a>commands</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; use logsearcher;</span><br><span class="line">mysql&gt; show tables;</span><br></pre></td></tr></table></figure>
+
+<h2 id="PHP"><a href="#PHP" class="headerlink" title="PHP"></a>PHP</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install php php-mbstring php-xml php-mysql php7.0-fpm composer unzip</span><br></pre></td></tr></table></figure>
+
+<h2 id="nginx"><a href="#nginx" class="headerlink" title="nginx"></a>nginx</h2><p>Check this <a href="https://www.digitalocean.com/community/tutorials/how-to-deploy-a-laravel-application-with-nginx-on-ubuntu-16-04" target="_blank" rel="noopener">Introduction</a>.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install nginx</span><br><span class="line"></span><br><span class="line">systemctl start nginx</span><br><span class="line">systemctl stop nginx</span><br><span class="line">systemctl restart nginx</span><br><span class="line"></span><br><span class="line">sudo chown yzhang:yzhang &#x2F;var&#x2F;www&#x2F;html&#x2F;quickstart</span><br><span class="line"></span><br><span class="line">sudo chgrp -R www-data storage bootstrap&#x2F;cache</span><br><span class="line"></span><br><span class="line">sudo chmod -R ug+rwx storage bootstrap&#x2F;cache</span><br><span class="line"></span><br><span class="line"># or use sudo chown -R 777 www-data &#x2F;var&#x2F;www&#x2F;html&#x2F;quickstart</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight php"><figcaption><span>/etc/nginx/conf.d/logsearcher.com</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">    listen <span class="number">8080</span>;</span><br><span class="line">    listen [::]:<span class="number">8080</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment"># SSL configuration</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># listen 443 ssl default_server;</span></span><br><span class="line"><span class="comment"># listen [::]:443 ssl default_server;</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># <span class="doctag">Note:</span> You should disable gzip for SSL traffic.</span></span><br><span class="line"><span class="comment"># See: https://bugs.debian.org/773332</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Read up on ssl_ciphers to ensure a secure configuration.</span></span><br><span class="line"><span class="comment"># See: https://bugs.debian.org/765782</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Self signed certs generated by the ssl-cert package</span></span><br><span class="line"><span class="comment"># Don't use them in a production server!</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># include snippets/snakeoil.conf;</span></span><br><span class="line"></span><br><span class="line">    root /<span class="keyword">var</span>/www/html/logsearcher/<span class="keyword">public</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment"># Add index.php to the list if you are using PHP</span></span><br><span class="line">    index index.php index.html index.htm index.nginx-debian.html;</span><br><span class="line"></span><br><span class="line">    server_name logsearcher.com www.logsearcher.com;</span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line"><span class="comment"># First attempt to serve request as file, then</span></span><br><span class="line"><span class="comment"># as directory, then fall back to displaying a 404.</span></span><br><span class="line">        try_files $uri $uri/ /index.php;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">    location ~ \.php$ &#123;</span><br><span class="line">        <span class="keyword">include</span> snippets/fastcgi-php.conf;</span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#       # With php7.0-cgi alone:</span></span><br><span class="line"><span class="comment">#       fastcgi_pass 127.0.0.1:9000;</span></span><br><span class="line"><span class="comment">#       # With php7.0-fpm:</span></span><br><span class="line">        fastcgi_pass unix:/run/php/php7<span class="number">.0</span>-fpm.sock;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># deny access to .htaccess files, if Apache's document root</span></span><br><span class="line"><span class="comment"># concurs with nginx's one</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#location ~ /\.ht &#123;</span></span><br><span class="line"><span class="comment">#       deny all;</span></span><br><span class="line"><span class="comment">#&#125;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="composer"><a href="#composer" class="headerlink" title="composer"></a>composer</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">php -r <span class="string">"copy('https://getcomposer.org/installer', 'composer-setup.php');"</span></span><br><span class="line">php -r <span class="string">"if (hash_file('SHA384', 'composer-setup.php') === '669656bab3166a7aff8a7506b8cb2d1c292f042046c5a994c43155c0be6190fa0355160742ab2e1c88d40d5be660b410') &#123; echo 'Installer verified'; &#125; else &#123; echo 'Installer corrupt'; unlink('composer-setup.php'); &#125; echo PHP_EOL;"</span></span><br><span class="line">php composer-setup.php</span><br><span class="line">php -r <span class="string">"unlink('composer-setup.php');"</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mv composer.phar &#x2F;usr&#x2F;local&#x2F;bin&#x2F;composer</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight vim"><figcaption><span>.bashrc</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># <span class="keyword">for</span> mac</span><br><span class="line">export PATH=<span class="string">"$HOME/.composer/vendor/bin:$PATH"</span></span><br><span class="line"></span><br><span class="line"># <span class="keyword">for</span> ubuntu </span><br><span class="line">export PATH=<span class="string">"$HOME/.config/composer/vendor/bin:$PATH"</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="laravel"><a href="#laravel" class="headerlink" title="laravel"></a>laravel</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer global require laravel&#x2F;installer</span><br></pre></td></tr></table></figure>
+
+<h3 id="setup-schedule-on-linux"><a href="#setup-schedule-on-linux" class="headerlink" title="setup schedule on linux"></a>setup schedule on linux</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">crontab -e</span><br><span class="line">* * * * * php &#x2F;path-to-your-project&#x2F;artisan schedule:run &gt;&gt; &#x2F;dev&#x2F;null 2&gt;&amp;1</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="notice-the-timeout-of-php"><a href="#notice-the-timeout-of-php" class="headerlink" title="notice the timeout of php"></a>notice the timeout of php</h3><p>Problem of Guzzle for opening the stream. Later find out, it was the timeout of php socket.<br>Make sure you have always set the timeout enough for a long term synchro call.</p>
+<h3 id="configure-the-env"><a href="#configure-the-env" class="headerlink" title="configure the .env"></a>configure the .env</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp .env.example .env</span><br></pre></td></tr></table></figure>
+
+
+<p>Make sure to change following config:</p>
+<ul>
+<li>QUEUE_DRIVER</li>
+<li>APP_ENV</li>
+<li>APP_DEBUG</li>
+<li>DB_DATABASE</li>
+<li>DB_USERNAME</li>
+<li>DB_PASSWORD</li>
+</ul>
+<h3 id="run-commands"><a href="#run-commands" class="headerlink" title="run commands"></a>run commands</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">composer install</span><br><span class="line">php artisan migrate</span><br></pre></td></tr></table></figure>
+
+<h2 id="Vim"><a href="#Vim" class="headerlink" title="Vim"></a>Vim</h2><h3 id="install-awesome-vim"><a href="#install-awesome-vim" class="headerlink" title="install awesome vim"></a>install awesome vim</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone --depth&#x3D;1 https:&#x2F;&#x2F;github.com&#x2F;amix&#x2F;vimrc.git ~&#x2F;.vim_runtime</span><br><span class="line">sh ~&#x2F;.vim_runtime&#x2F;install_awesome_vimrc.sh</span><br></pre></td></tr></table></figure>
+
+
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/notes-blog/">~/</a></li>
+         
+          <li><a href="/notes-blog/about/">User</a></li>
+         
+          <li><a href="/notes-blog/notes">Notes</a></li>
+         
+          <li><a href="/notes-blog/archives/">Posts</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker"><span class="toc-number">1.</span> <span class="toc-text">Docker</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#installation"><span class="toc-number">1.1.</span> <span class="toc-text">installation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#add-docker-group"><span class="toc-number">1.2.</span> <span class="toc-text">add docker group</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#build-a-image"><span class="toc-number">1.3.</span> <span class="toc-text">build a image</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#run-a-container"><span class="toc-number">1.4.</span> <span class="toc-text">run a container</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mysql"><span class="toc-number">2.</span> <span class="toc-text">Mysql</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#installation-1"><span class="toc-number">2.1.</span> <span class="toc-text">installation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#commands"><span class="toc-number">2.2.</span> <span class="toc-text">commands</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PHP"><span class="toc-number">3.</span> <span class="toc-text">PHP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nginx"><span class="toc-number">4.</span> <span class="toc-text">nginx</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#composer"><span class="toc-number">5.</span> <span class="toc-text">composer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#laravel"><span class="toc-number">6.</span> <span class="toc-text">laravel</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#setup-schedule-on-linux"><span class="toc-number">6.1.</span> <span class="toc-text">setup schedule on linux</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#notice-the-timeout-of-php"><span class="toc-number">6.2.</span> <span class="toc-text">notice the timeout of php</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#configure-the-env"><span class="toc-number">6.3.</span> <span class="toc-text">configure the .env</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#run-commands"><span class="toc-number">6.4.</span> <span class="toc-text">run commands</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vim"><span class="toc-number">7.</span> <span class="toc-text">Vim</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#install-awesome-vim"><span class="toc-number">7.1.</span> <span class="toc-text">install awesome vim</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://alfmunny.github.io/2017/07/13/Notes-In-the-Shell/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://alfmunny.github.io/2017/07/13/Notes-In-the-Shell/&text=Server Configuration Notes"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://alfmunny.github.io/2017/07/13/Notes-In-the-Shell/&title=Server Configuration Notes"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://alfmunny.github.io/2017/07/13/Notes-In-the-Shell/&is_video=false&description=Server Configuration Notes"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Server Configuration Notes&body=Check out this article: http://alfmunny.github.io/2017/07/13/Notes-In-the-Shell/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://alfmunny.github.io/2017/07/13/Notes-In-the-Shell/&title=Server Configuration Notes"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://alfmunny.github.io/2017/07/13/Notes-In-the-Shell/&title=Server Configuration Notes"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://alfmunny.github.io/2017/07/13/Notes-In-the-Shell/&title=Server Configuration Notes"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://alfmunny.github.io/2017/07/13/Notes-In-the-Shell/&title=Server Configuration Notes"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://alfmunny.github.io/2017/07/13/Notes-In-the-Shell/&name=Server Configuration Notes&description=&lt;h2 id=&#34;Docker&#34;&gt;&lt;a href=&#34;#Docker&#34; class=&#34;headerlink&#34; title=&#34;Docker&#34;&gt;&lt;/a&gt;Docker&lt;/h2&gt;&lt;h3 id=&#34;installation&#34;&gt;&lt;a href=&#34;#installation&#34; class=&#34;headerlink&#34; title=&#34;installation&#34;&gt;&lt;/a&gt;installation&lt;/h3&gt;&lt;p&gt;&lt;a href=&#34;https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Official Website&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;add-docker-group&#34;&gt;&lt;a href=&#34;#add-docker-group&#34; class=&#34;headerlink&#34; title=&#34;add docker group&#34;&gt;&lt;/a&gt;add docker group&lt;/h3&gt;&lt;p&gt;&lt;code&gt;sudo groupadd docker&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo usermod -aG docker $USER&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Try to run: &lt;code&gt;docker run hello-world&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;build-a-image&#34;&gt;&lt;a href=&#34;#build-a-image&#34; class=&#34;headerlink&#34; title=&#34;build a image&#34;&gt;&lt;/a&gt;build a image&lt;/h3&gt;&lt;p&gt;&lt;code&gt;docker build -t logsearcherbackend .&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;run-a-container&#34;&gt;&lt;a href=&#34;#run-a-container&#34; class=&#34;headerlink&#34; title=&#34;run a container&#34;&gt;&lt;/a&gt;run a container&lt;/h3&gt;"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://alfmunny.github.io/2017/07/13/Notes-In-the-Shell/&t=Server Configuration Notes"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2020 Alfmunny
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/notes-blog/">~/</a></li>
+         
+          <li><a href="/notes-blog/about/">User</a></li>
+         
+          <li><a href="/notes-blog/notes">Notes</a></li>
+         
+          <li><a href="/notes-blog/archives/">Posts</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+<link rel="stylesheet" href="/notes-blog/lib/font-awesome/css/all.min.css">
+
+
+<link rel="stylesheet" href="/notes-blog/lib/justified-gallery/css/justifiedGallery.min.css">
+
+
+    <!-- jquery -->
+
+<script src="/notes-blog/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/notes-blog/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+  
+<script src="/notes-blog/lib/clipboard/clipboard.min.js"></script>
+
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/notes-blog/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>

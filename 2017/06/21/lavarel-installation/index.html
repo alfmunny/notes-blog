@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="installationSeveral packages should be installed.  php 7.1 composer laravel valet mysql  php7.1brew install homebrew&#x2F;php&#x2F;php71composercopy following code into terminal and execute php -r &quot;copy(&amp;a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Laravel Installation">
+<meta property="og:url" content="http://alfmunny.github.io/2017/06/21/lavarel-installation/index.html">
+<meta property="og:site_name" content="IN THE SHELL">
+<meta property="og:description" content="installationSeveral packages should be installed.  php 7.1 composer laravel valet mysql  php7.1brew install homebrew&#x2F;php&#x2F;php71composercopy following code into terminal and execute php -r &quot;copy(&amp;a">
+<meta property="og:locale">
+<meta property="article:published_time" content="2017-06-21T11:23:21.000Z">
+<meta property="article:modified_time" content="2020-12-26T13:33:05.335Z">
+<meta property="article:author" content="Alfmunny">
+<meta property="article:tag" content="laravel">
+<meta name="twitter:card" content="summary">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/notes-blog/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/notes-blog/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/notes-blog/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Laravel Installation</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/notes-blog/css/style.css">
+
+    <!-- persian styles -->
+    
+      
+<link rel="stylesheet" href="/notes-blog/css/rtl.css">
+
+    
+    <!-- rss -->
+    
+    
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/notes-blog/">~/</a></li>
+         
+          <li><a href="/notes-blog/about/">User</a></li>
+         
+          <li><a href="/notes-blog/notes">Notes</a></li>
+         
+          <li><a href="/notes-blog/archives/">Posts</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/notes-blog/2017/06/22/lavarel-simple-app-with-database/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://alfmunny.github.io/2017/06/21/lavarel-installation/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://alfmunny.github.io/2017/06/21/lavarel-installation/&text=Laravel Installation"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://alfmunny.github.io/2017/06/21/lavarel-installation/&title=Laravel Installation"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://alfmunny.github.io/2017/06/21/lavarel-installation/&is_video=false&description=Laravel Installation"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Laravel Installation&body=Check out this article: http://alfmunny.github.io/2017/06/21/lavarel-installation/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://alfmunny.github.io/2017/06/21/lavarel-installation/&title=Laravel Installation"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://alfmunny.github.io/2017/06/21/lavarel-installation/&title=Laravel Installation"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://alfmunny.github.io/2017/06/21/lavarel-installation/&title=Laravel Installation"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://alfmunny.github.io/2017/06/21/lavarel-installation/&title=Laravel Installation"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://alfmunny.github.io/2017/06/21/lavarel-installation/&name=Laravel Installation&description=&lt;h2 id=&#34;installation&#34;&gt;&lt;a href=&#34;#installation&#34; class=&#34;headerlink&#34; title=&#34;installation&#34;&gt;&lt;/a&gt;installation&lt;/h2&gt;&lt;p&gt;Several packages should be installed.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;php 7.1&lt;/li&gt;
+&lt;li&gt;composer&lt;/li&gt;
+&lt;li&gt;laravel&lt;/li&gt;
+&lt;li&gt;valet&lt;/li&gt;
+&lt;li&gt;mysql&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;php7-1&#34;&gt;&lt;a href=&#34;#php7-1&#34; class=&#34;headerlink&#34; title=&#34;php7.1&#34;&gt;&lt;/a&gt;php7.1&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;brew install homebrew/php/php71&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;composer&#34;&gt;&lt;a href=&#34;#composer&#34; class=&#34;headerlink&#34; title=&#34;composer&#34;&gt;&lt;/a&gt;composer&lt;/h3&gt;&lt;p&gt;copy following code into terminal and execute&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;php -r &amp;quot;copy(&amp;apos;https://getcomposer.org/installer&amp;apos;, &amp;apos;composer-setup.php&amp;apos;);&amp;quot;
+php -r &amp;quot;if (hash_file(&amp;apos;SHA384&amp;apos;, &amp;apos;composer-setup.php&amp;apos;) === &amp;apos;669656bab3166a7aff8a7506b8cb2d1c292f042046c5a994c43155c0be6190fa0355160742ab2e1c88d40d5be660b410&amp;apos;) { echo &amp;apos;Installer verified&amp;apos;; } else { echo &amp;apos;Installer corrupt&amp;apos;; unlink(&amp;apos;composer-setup.php&amp;apos;); } echo PHP_EOL;&amp;quot;
+php composer-setup.php
+php -r &amp;quot;unlink(&amp;apos;composer-setup.php&amp;apos;);&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;move the composer.phar into your PATH&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mv composer.phar /usr/local/bin/composer&lt;/code&gt;&lt;/pre&gt;"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://alfmunny.github.io/2017/06/21/lavarel-installation/&t=Laravel Installation"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#installation"><span class="toc-number">1.</span> <span class="toc-text">installation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#php7-1"><span class="toc-number">1.1.</span> <span class="toc-text">php7.1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#composer"><span class="toc-number">1.2.</span> <span class="toc-text">composer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#laravel"><span class="toc-number">1.3.</span> <span class="toc-text">laravel</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#valet"><span class="toc-number">1.4.</span> <span class="toc-text">valet</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mysql"><span class="toc-number">1.5.</span> <span class="toc-text">mysql</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Create-new-project"><span class="toc-number">2.</span> <span class="toc-text">Create new project</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    
+        <h1 class="posttitle" >
+            Laravel Installation
+    </h1>
+    
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <!--<span itemprop="name">IN THE SHELL</span>-->
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2017-06-21T11:23:21.000Z" itemprop="datePublished">2017-06-21</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/notes-blog/categories/posts/">posts</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/notes-blog/tags/laravel/" rel="tag">laravel</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="installation"><a href="#installation" class="headerlink" title="installation"></a>installation</h2><p>Several packages should be installed.</p>
+<ul>
+<li>php 7.1</li>
+<li>composer</li>
+<li>laravel</li>
+<li>valet</li>
+<li>mysql</li>
+</ul>
+<h3 id="php7-1"><a href="#php7-1" class="headerlink" title="php7.1"></a>php7.1</h3><pre><code>brew install homebrew/php/php71</code></pre><h3 id="composer"><a href="#composer" class="headerlink" title="composer"></a>composer</h3><p>copy following code into terminal and execute</p>
+<pre><code>php -r &quot;copy(&apos;https://getcomposer.org/installer&apos;, &apos;composer-setup.php&apos;);&quot;
+php -r &quot;if (hash_file(&apos;SHA384&apos;, &apos;composer-setup.php&apos;) === &apos;669656bab3166a7aff8a7506b8cb2d1c292f042046c5a994c43155c0be6190fa0355160742ab2e1c88d40d5be660b410&apos;) { echo &apos;Installer verified&apos;; } else { echo &apos;Installer corrupt&apos;; unlink(&apos;composer-setup.php&apos;); } echo PHP_EOL;&quot;
+php composer-setup.php
+php -r &quot;unlink(&apos;composer-setup.php&apos;);&quot;</code></pre><p>move the composer.phar into your PATH</p>
+<pre><code>mv composer.phar /usr/local/bin/composer</code></pre><p>add the composer vendor into your PATH</p>
+<pre><code>export PATH=&quot;$HOME/.composer/vendor/bin:$PATH&quot;</code></pre><h3 id="laravel"><a href="#laravel" class="headerlink" title="laravel"></a>laravel</h3><pre><code>composer global require laravel/installer</code></pre><h3 id="valet"><a href="#valet" class="headerlink" title="valet"></a>valet</h3><pre><code>composer global require laravel/valet
+valet install</code></pre><p>Than you can ping foo.dev<br>    ping foo.dev</p>
+<h3 id="mysql"><a href="#mysql" class="headerlink" title="mysql"></a>mysql</h3><pre><code>brew install mysql
+brew service start mysql</code></pre><h2 id="Create-new-project"><a href="#Create-new-project" class="headerlink" title="Create new project"></a>Create new project</h2><pre><code>cd ~/code
+valet park
+laravel new anything</code></pre><p>Than you can visit anything.dev in your browser.</p>
+<p>Notes: if the website only shows you ‘it works!’, try followings:</p>
+<pre><code>sudo apachectl stop
+valet restart</code></pre><p>You can secure the website by</p>
+<pre><code>cd anything
+valet secure</code></pre>
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/notes-blog/">~/</a></li>
+         
+          <li><a href="/notes-blog/about/">User</a></li>
+         
+          <li><a href="/notes-blog/notes">Notes</a></li>
+         
+          <li><a href="/notes-blog/archives/">Posts</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#installation"><span class="toc-number">1.</span> <span class="toc-text">installation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#php7-1"><span class="toc-number">1.1.</span> <span class="toc-text">php7.1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#composer"><span class="toc-number">1.2.</span> <span class="toc-text">composer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#laravel"><span class="toc-number">1.3.</span> <span class="toc-text">laravel</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#valet"><span class="toc-number">1.4.</span> <span class="toc-text">valet</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mysql"><span class="toc-number">1.5.</span> <span class="toc-text">mysql</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Create-new-project"><span class="toc-number">2.</span> <span class="toc-text">Create new project</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://alfmunny.github.io/2017/06/21/lavarel-installation/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://alfmunny.github.io/2017/06/21/lavarel-installation/&text=Laravel Installation"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://alfmunny.github.io/2017/06/21/lavarel-installation/&title=Laravel Installation"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://alfmunny.github.io/2017/06/21/lavarel-installation/&is_video=false&description=Laravel Installation"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Laravel Installation&body=Check out this article: http://alfmunny.github.io/2017/06/21/lavarel-installation/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://alfmunny.github.io/2017/06/21/lavarel-installation/&title=Laravel Installation"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://alfmunny.github.io/2017/06/21/lavarel-installation/&title=Laravel Installation"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://alfmunny.github.io/2017/06/21/lavarel-installation/&title=Laravel Installation"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://alfmunny.github.io/2017/06/21/lavarel-installation/&title=Laravel Installation"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://alfmunny.github.io/2017/06/21/lavarel-installation/&name=Laravel Installation&description=&lt;h2 id=&#34;installation&#34;&gt;&lt;a href=&#34;#installation&#34; class=&#34;headerlink&#34; title=&#34;installation&#34;&gt;&lt;/a&gt;installation&lt;/h2&gt;&lt;p&gt;Several packages should be installed.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;php 7.1&lt;/li&gt;
+&lt;li&gt;composer&lt;/li&gt;
+&lt;li&gt;laravel&lt;/li&gt;
+&lt;li&gt;valet&lt;/li&gt;
+&lt;li&gt;mysql&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;php7-1&#34;&gt;&lt;a href=&#34;#php7-1&#34; class=&#34;headerlink&#34; title=&#34;php7.1&#34;&gt;&lt;/a&gt;php7.1&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;brew install homebrew/php/php71&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;composer&#34;&gt;&lt;a href=&#34;#composer&#34; class=&#34;headerlink&#34; title=&#34;composer&#34;&gt;&lt;/a&gt;composer&lt;/h3&gt;&lt;p&gt;copy following code into terminal and execute&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;php -r &amp;quot;copy(&amp;apos;https://getcomposer.org/installer&amp;apos;, &amp;apos;composer-setup.php&amp;apos;);&amp;quot;
+php -r &amp;quot;if (hash_file(&amp;apos;SHA384&amp;apos;, &amp;apos;composer-setup.php&amp;apos;) === &amp;apos;669656bab3166a7aff8a7506b8cb2d1c292f042046c5a994c43155c0be6190fa0355160742ab2e1c88d40d5be660b410&amp;apos;) { echo &amp;apos;Installer verified&amp;apos;; } else { echo &amp;apos;Installer corrupt&amp;apos;; unlink(&amp;apos;composer-setup.php&amp;apos;); } echo PHP_EOL;&amp;quot;
+php composer-setup.php
+php -r &amp;quot;unlink(&amp;apos;composer-setup.php&amp;apos;);&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;move the composer.phar into your PATH&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mv composer.phar /usr/local/bin/composer&lt;/code&gt;&lt;/pre&gt;"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://alfmunny.github.io/2017/06/21/lavarel-installation/&t=Laravel Installation"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2020 Alfmunny
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/notes-blog/">~/</a></li>
+         
+          <li><a href="/notes-blog/about/">User</a></li>
+         
+          <li><a href="/notes-blog/notes">Notes</a></li>
+         
+          <li><a href="/notes-blog/archives/">Posts</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+<link rel="stylesheet" href="/notes-blog/lib/font-awesome/css/all.min.css">
+
+
+<link rel="stylesheet" href="/notes-blog/lib/justified-gallery/css/justifiedGallery.min.css">
+
+
+    <!-- jquery -->
+
+<script src="/notes-blog/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/notes-blog/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+  
+<script src="/notes-blog/lib/clipboard/clipboard.min.js"></script>
+
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/notes-blog/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>

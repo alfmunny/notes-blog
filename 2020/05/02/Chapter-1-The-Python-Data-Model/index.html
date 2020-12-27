@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="You can think of the data model as a description of Python as a framework. It formalizes the interfaces of the building blocks of the language itself, such as sequences, iterators, functions, classes,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Fluent Python - Chapter 1. The Python Data Model">
+<meta property="og:url" content="http://alfmunny.github.io/2020/05/02/Chapter-1-The-Python-Data-Model/index.html">
+<meta property="og:site_name" content="IN THE SHELL">
+<meta property="og:description" content="You can think of the data model as a description of Python as a framework. It formalizes the interfaces of the building blocks of the language itself, such as sequences, iterators, functions, classes,">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-05-02T18:00:00.000Z">
+<meta property="article:modified_time" content="2020-12-26T23:33:28.825Z">
+<meta property="article:author" content="Alfmunny">
+<meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/notes-blog/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/notes-blog/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/notes-blog/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Fluent Python - Chapter 1. The Python Data Model</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/notes-blog/css/style.css">
+
+    <!-- persian styles -->
+    
+      
+<link rel="stylesheet" href="/notes-blog/css/rtl.css">
+
+    
+    <!-- rss -->
+    
+    
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/notes-blog/">~/</a></li>
+         
+          <li><a href="/notes-blog/about/">User</a></li>
+         
+          <li><a href="/notes-blog/notes">Notes</a></li>
+         
+          <li><a href="/notes-blog/archives/">Posts</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/notes-blog/2020/10/01/reading-hands-on-ml/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/notes-blog/2020/05/02/Chapter-2-An-Array-of-Sequences/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://alfmunny.github.io/2020/05/02/Chapter-1-The-Python-Data-Model/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://alfmunny.github.io/2020/05/02/Chapter-1-The-Python-Data-Model/&text=Fluent Python - Chapter 1. The Python Data Model"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://alfmunny.github.io/2020/05/02/Chapter-1-The-Python-Data-Model/&title=Fluent Python - Chapter 1. The Python Data Model"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://alfmunny.github.io/2020/05/02/Chapter-1-The-Python-Data-Model/&is_video=false&description=Fluent Python - Chapter 1. The Python Data Model"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Fluent Python - Chapter 1. The Python Data Model&body=Check out this article: http://alfmunny.github.io/2020/05/02/Chapter-1-The-Python-Data-Model/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://alfmunny.github.io/2020/05/02/Chapter-1-The-Python-Data-Model/&title=Fluent Python - Chapter 1. The Python Data Model"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://alfmunny.github.io/2020/05/02/Chapter-1-The-Python-Data-Model/&title=Fluent Python - Chapter 1. The Python Data Model"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://alfmunny.github.io/2020/05/02/Chapter-1-The-Python-Data-Model/&title=Fluent Python - Chapter 1. The Python Data Model"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://alfmunny.github.io/2020/05/02/Chapter-1-The-Python-Data-Model/&title=Fluent Python - Chapter 1. The Python Data Model"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://alfmunny.github.io/2020/05/02/Chapter-1-The-Python-Data-Model/&name=Fluent Python - Chapter 1. The Python Data Model&description=&lt;p&gt;You can think of the data model as a description of Python as a framework. It formalizes the interfaces of the building blocks of the language itself, such as sequences, iterators, functions, classes, context managers, and so on.&lt;/p&gt;
+&lt;p&gt;Special methods: &lt;code&gt;__getitem__&lt;/code&gt; and &lt;code&gt;__len__&lt;/code&gt;.&lt;/p&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; collections&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Card = collections.namedtuple(&lt;span class=&#34;string&#34;&gt;&#39;Card&#39;&lt;/span&gt;, [&lt;span class=&#34;string&#34;&gt;&#39;rank&#39;&lt;/span&gt;, &lt;span class=&#34;string&#34;&gt;&#39;suit&#39;&lt;/span&gt;])&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;class&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;FrenchDeck&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    ranks = [str(n) &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; n &lt;span class=&#34;keyword&#34;&gt;in&lt;/span&gt; range(&lt;span class=&#34;number&#34;&gt;2&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;11&lt;/span&gt;)] + list(&lt;span class=&#34;string&#34;&gt;&#39;JQKA&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    suits = &lt;span class=&#34;string&#34;&gt;&#39;spades diamonds clubs hearts&#39;&lt;/span&gt;.split()&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;__init__&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(self)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        self._cards = [Card(rank, suit) &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; suit &lt;span class=&#34;keyword&#34;&gt;in&lt;/span&gt; self.suits &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; rank &lt;span class=&#34;keyword&#34;&gt;in&lt;/span&gt; self.ranks]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;__len__&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(self)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; len(self._cards)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;__getitem__&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(self, position)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; self._cards[position]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;code&gt;nametuple&lt;/code&gt; can be used to build classes of objects that are just bundles of attributes with no custom methods.&lt;/p&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;beer_card = Card(&lt;span class=&#34;string&#34;&gt;&#39;7&#39;&lt;/span&gt;, &lt;span class=&#34;string&#34;&gt;&#39;diamonds&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;beer_card&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;code&gt;len()&lt;/code&gt; function returns the number of cards in it.&lt;/p&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;deck = FrenchDeck()&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;len(deck)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;index operation, provided by &lt;code&gt;__getitem__&lt;/code&gt; method.&lt;/p&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;deck[&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;pre&gt;&lt;code&gt;Card(rank=&amp;apos;2&amp;apos;, suit=&amp;apos;spades&amp;apos;)&lt;/code&gt;&lt;/pre&gt;"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://alfmunny.github.io/2020/05/02/Chapter-1-The-Python-Data-Model/&t=Fluent Python - Chapter 1. The Python Data Model"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    
+        <h1 class="posttitle" >
+            Fluent Python - Chapter 1. The Python Data Model
+    </h1>
+    
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <!--<span itemprop="name">IN THE SHELL</span>-->
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-05-02T18:00:00.000Z" itemprop="datePublished">2020-05-02</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/notes-blog/categories/Book-Notes/">Book Notes</a> › <a class="category-link" href="/notes-blog/categories/Book-Notes/Fluent-Python/">Fluent Python</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/notes-blog/tags/Python/" rel="tag">Python</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>You can think of the data model as a description of Python as a framework. It formalizes the interfaces of the building blocks of the language itself, such as sequences, iterators, functions, classes, context managers, and so on.</p>
+<p>Special methods: <code>__getitem__</code> and <code>__len__</code>.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> collections</span><br><span class="line"></span><br><span class="line">Card = collections.namedtuple(<span class="string">'Card'</span>, [<span class="string">'rank'</span>, <span class="string">'suit'</span>])</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FrenchDeck</span>:</span></span><br><span class="line">    ranks = [str(n) <span class="keyword">for</span> n <span class="keyword">in</span> range(<span class="number">2</span>, <span class="number">11</span>)] + list(<span class="string">'JQKA'</span>)</span><br><span class="line">    suits = <span class="string">'spades diamonds clubs hearts'</span>.split()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self._cards = [Card(rank, suit) <span class="keyword">for</span> suit <span class="keyword">in</span> self.suits <span class="keyword">for</span> rank <span class="keyword">in</span> self.ranks]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__len__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> len(self._cards)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__getitem__</span><span class="params">(self, position)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self._cards[position]</span><br></pre></td></tr></table></figure>
+
+<p><code>nametuple</code> can be used to build classes of objects that are just bundles of attributes with no custom methods.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">beer_card = Card(<span class="string">'7'</span>, <span class="string">'diamonds'</span>)</span><br><span class="line">beer_card</span><br></pre></td></tr></table></figure>
+
+<p><code>len()</code> function returns the number of cards in it.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">deck = FrenchDeck()</span><br><span class="line">len(deck)</span><br></pre></td></tr></table></figure>
+
+<p>index operation, provided by <code>__getitem__</code> method.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deck[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+
+<pre><code>Card(rank=&apos;2&apos;, suit=&apos;spades&apos;)</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deck[<span class="number">-1</span>]</span><br></pre></td></tr></table></figure>
+
+<pre><code>Card(rank=&apos;A&apos;, suit=&apos;hearts&apos;)</code></pre><p>Get a random item from a sequence</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> choice</span><br><span class="line">choice(deck)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">choice(deck)</span><br></pre></td></tr></table></figure>
+
+<pre><code>Card(rank=&apos;9&apos;, suit=&apos;hearts&apos;)</code></pre><p>Slicing support, because <code>__getitem__</code> delegates to the [] oeprator of <code>self._cards</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deck[:<span class="number">3</span>]</span><br></pre></td></tr></table></figure>
+
+<pre><code>[Card(rank=&apos;2&apos;, suit=&apos;spades&apos;), Card(rank=&apos;3&apos;, suit=&apos;spades&apos;), Card(rank=&apos;4&apos;, suit=&apos;spades&apos;)]</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deck[<span class="number">12</span>::<span class="number">13</span>]</span><br></pre></td></tr></table></figure>
+
+<pre><code>[Card(rank=&apos;A&apos;, suit=&apos;spades&apos;), Card(rank=&apos;A&apos;, suit=&apos;diamonds&apos;), Card(rank=&apos;A&apos;, suit=&apos;clubs&apos;), Card(rank=&apos;A&apos;, suit=&apos;hearts&apos;)]</code></pre><p><code>__getitem__</code> method make the deck iterable</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> card <span class="keyword">in</span> deck:</span><br><span class="line">    print(card)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Card(rank=<span class="string">'2'</span>, suit=<span class="string">'spades'</span>)</span><br><span class="line">Card(rank=<span class="string">'3'</span>, suit=<span class="string">'spades'</span>)</span><br><span class="line">Card(rank=<span class="string">'4'</span>, suit=<span class="string">'spades'</span>)</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>Iterated in reverse</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> card <span class="keyword">in</span> reversed(deck):</span><br><span class="line">    print(card)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Card(rank=<span class="string">'A'</span>, suit=<span class="string">'hearts'</span>)</span><br><span class="line">Card(rank=<span class="string">'K'</span>, suit=<span class="string">'hearts'</span>)</span><br><span class="line">Card(rank=<span class="string">'Q'</span>, suit=<span class="string">'hearts'</span>)</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>If a collection has no <code>__contains__</code>, the <code>in</code> oeprator does a sequential scan.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Card(<span class="string">'Q'</span>, <span class="string">'hearts'</span>) <span class="keyword">in</span> deck</span><br></pre></td></tr></table></figure>
+
+<pre><code>True</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Card(<span class="string">'7'</span>, <span class="string">'beasts'</span>) <span class="keyword">in</span> deck</span><br></pre></td></tr></table></figure>
+
+<pre><code>False</code></pre><p>Sorting</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">suit_values = dict(spades=<span class="number">3</span>, hearts=<span class="number">2</span>, diamonds=<span class="number">1</span>, clubs=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">spades_high</span><span class="params">(card)</span>:</span></span><br><span class="line">    rank_value = FrenchDeck.ranks.index(card.rank)</span><br><span class="line">    <span class="keyword">return</span> rank_value * len(suit_values) + suit_values[card.suit]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> card <span class="keyword">in</span> sorted(deck, key=spades_high):</span><br><span class="line">    print(card)</span><br></pre></td></tr></table></figure>
+
+<pre><code>Card(rank=&apos;2&apos;, suit=&apos;clubs&apos;)
+Card(rank=&apos;2&apos;, suit=&apos;diamonds&apos;)
+Card(rank=&apos;2&apos;, suit=&apos;hearts&apos;)
+...</code></pre><p>Special methods are meant to be called by Python intepreter, and not by you. You don’t write <code>my_object.__len__()</code>. You write len(my_object) and, then Python calls the <code>__len__</code> instance method you implemented.</p>
+<p><code>i in x:</code> invocates <code>iter(x)</code>, which in turn may call <code>x.__iter()</code> if that is available.</p>
+<p>It is usually bette to call the relted built-in function, len, iter, str, etc. These built-ins call the corresponding special method.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> hypot</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Vector</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, x, y)</span>:</span></span><br><span class="line">        self.x = x</span><br><span class="line">        self.y = y</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__repr__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Vector(%r, %r)"</span> % (self.x, self.y)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__bool__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> bool(abs(self))</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__add__</span><span class="params">(self, other)</span>:</span></span><br><span class="line">        x = self.x + other.x</span><br><span class="line">        y = self.y + other.y</span><br><span class="line">        <span class="keyword">return</span> Vector(x, y)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__abs__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> hypot(self.x, self.y)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__mul__</span><span class="params">(self, scalar)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> Vector(self.x * scalar, self.y * scalar)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">v1 = Vector(<span class="number">4</span>, <span class="number">1</span>)</span><br><span class="line">v2 = Vector(<span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line">v1 + v2</span><br></pre></td></tr></table></figure>
+
+<pre><code>Vector(7, 5)</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">v = Vector(<span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line">abs(v)</span><br></pre></td></tr></table></figure>
+
+<pre><code>5.0</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">v * <span class="number">3</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>Vector(9, 12)</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">abs(v * <span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+
+<pre><code>15.0</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bool(v)</span><br></pre></td></tr></table></figure>
+
+<pre><code>True</code></pre><p>Use %r to obtain the standard representation</p>
+<p><code>str()</code> will call <code>__repr__</code> as a fallback, if <code>__str__</code> is not available.</p>
+<p><code>__repr</code> is to be unambiguous.</p>
+<p><code>__str__</code> is to be readable.</p>
+<p><code>__add__</code> and <code>__mul__</code> return new instance, not touching either operand.</p>
+<p>Here we return the magnitude of the vector.</p>
+<p><code>bool(x)</code> calls <code>x.__bool__()</code>. If <code>x.__bool__()</code> is not implemented, call <code>x.__len__()</code>, zero returns False. Otherwise bool returns True.</p>
+<p>Table 1-1. Special method names (operators excluded)</p>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Method names</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>String/bytes representation</td>
+<td>__repr__, <span class="underline"><span class="underline">str</span></span>, <span class="underline"><span class="underline">format</span></span>, <span class="underline"><span class="underline">bytes</span></span></td>
+</tr>
+<tr>
+<td>Conversion to number</td>
+<td>__abs__, <span class="underline"><span class="underline">bool</span></span>, <span class="underline"><span class="underline">complex</span></span>, <span class="underline"><span class="underline">init_</span></span>, <span class="underline"><span class="underline">float</span></span>, <span class="underline"><span class="underline">hash</span></span>, <span class="underline"><span class="underline">index</span></span></td>
+</tr>
+<tr>
+<td>Emulating collections</td>
+<td>__len__, <span class="underline"><span class="underline">getitem</span></span>, setitem__, <span class="underline"><span class="underline">delitem</span></span>, <span class="underline"><span class="underline">contains</span></span>, <span class="underline"><span class="underline">iter</span></span>, <span class="underline"><span class="underline">reversed</span></span> <span class="underline"><span class="underline">next</span></span></td>
+</tr>
+<tr>
+<td>Iteration</td>
+<td>__iter__, <span class="underline"><span class="underline">reversed</span></span>, <span class="underline"><span class="underline">next</span></span></td>
+</tr>
+<tr>
+<td>Emulating callables</td>
+<td>__call__</td>
+</tr>
+<tr>
+<td>Context management</td>
+<td>__enter__, <span class="underline"><span class="underline">exit</span></span></td>
+</tr>
+<tr>
+<td>Instance creation and destruction</td>
+<td>__new__, <span class="underline"><span class="underline">init</span></span>, <span class="underline"><span class="underline">del</span></span></td>
+</tr>
+<tr>
+<td>Attribute management</td>
+<td>__getattr__, getattribute__, <span class="underline"><span class="underline">setattr</span></span>, <span class="underline"><span class="underline">delattr</span></span>, <span class="underline"><span class="underline">dir</span></span></td>
+</tr>
+<tr>
+<td>Attribute descriptors</td>
+<td>__get__, <span class="underline"><span class="underline">set</span></span>, <span class="underline"><span class="underline">delete</span></span></td>
+</tr>
+<tr>
+<td>Class services</td>
+<td>__prepare__, <span class="underline"><span class="underline">instancecheck</span></span>, <span class="underline"><span class="underline">subclasscheck</span></span></td>
+</tr>
+</tbody></table>
+<p>Table 1-2. Special method names for operators</p>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Method names and related oeprators</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Unary numeric operators</td>
+<td>__neg__, <span class="underline"><span class="underline">pos</span></span>, <span class="underline"><span class="underline">abs</span></span></td>
+</tr>
+<tr>
+<td>Rich comparison operators</td>
+<td>__lt__&gt;, <span class="underline"><span class="underline">le__&lt;=, __eq__==, __ne</span></span>!=, __gt__&gt;, __ge__&gt;=</td>
+</tr>
+<tr>
+<td>Arithmeric operators</td>
+<td>__add__+, <span class="underline"><span class="underline">sub</span></span>-, __mul__*, __truediv__/, __floordiv__//, __mod__%, __divmod__divmod() __pow__** or pow(), __round__round()</td>
+</tr>
+<tr>
+<td>Reversed arithmeric operators</td>
+<td>__radd__, <span class="underline"><span class="underline">rsub</span></span>, <span class="underline"><span class="underline">rmul</span></span>, <span class="underline"><span class="underline">rtruediv</span></span>, <span class="underline"><span class="underline">rfloordiv</span></span>, <span class="underline"><span class="underline">rmode</span></span>, <span class="underline"><span class="underline">rdivmod</span></span>, <span class="underline"><span class="underline">rpow</span></span></td>
+</tr>
+<tr>
+<td>Augmented assignment arithmeric operators</td>
+<td>__iadd__, <span class="underline"><span class="underline">isub</span></span>, <span class="underline"><span class="underline">imul</span></span>, <span class="underline"><span class="underline">itrediv</span></span>, <span class="underline"><span class="underline">ifloordiv</span></span>, <span class="underline"><span class="underline">imod</span></span>, <span class="underline"><span class="underline">ipow</span></span></td>
+</tr>
+<tr>
+<td>Bitwise operators</td>
+<td>__invert__~, <span class="underline"><span class="underline">lshift__<a id="org71a38d8"></a>, __and__&amp;, __or</span></span>, __xor__^</td>
+</tr>
+<tr>
+<td>Reversed Bitwise operators</td>
+<td>__rlshift__, <span class="underline"><span class="underline">rrshift</span></span>, <span class="underline"><span class="underline">rand</span></span>, <span class="underline"><span class="underline">ror</span></span>, <span class="underline"><span class="underline">rxor</span></span></td>
+</tr>
+<tr>
+<td>Augmented Bitwise operators</td>
+<td>__ilshift__, <span class="underline"><span class="underline">irshift</span></span>, <span class="underline"><span class="underline">iand</span></span>, <span class="underline"><span class="underline">ior</span></span>, <span class="underline"><span class="underline">ixor</span></span></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>“The Zen of Python”: “Practicality beats purity”</p>
+</blockquote>
+<p><code>len(x)</code> reads from a filed in a C struct of CPython, when x is a built-in type.</p>
+<p>You can still customize it through <code>__len__</code>.</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/notes-blog/">~/</a></li>
+         
+          <li><a href="/notes-blog/about/">User</a></li>
+         
+          <li><a href="/notes-blog/notes">Notes</a></li>
+         
+          <li><a href="/notes-blog/archives/">Posts</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://alfmunny.github.io/2020/05/02/Chapter-1-The-Python-Data-Model/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://alfmunny.github.io/2020/05/02/Chapter-1-The-Python-Data-Model/&text=Fluent Python - Chapter 1. The Python Data Model"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://alfmunny.github.io/2020/05/02/Chapter-1-The-Python-Data-Model/&title=Fluent Python - Chapter 1. The Python Data Model"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://alfmunny.github.io/2020/05/02/Chapter-1-The-Python-Data-Model/&is_video=false&description=Fluent Python - Chapter 1. The Python Data Model"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Fluent Python - Chapter 1. The Python Data Model&body=Check out this article: http://alfmunny.github.io/2020/05/02/Chapter-1-The-Python-Data-Model/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://alfmunny.github.io/2020/05/02/Chapter-1-The-Python-Data-Model/&title=Fluent Python - Chapter 1. The Python Data Model"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://alfmunny.github.io/2020/05/02/Chapter-1-The-Python-Data-Model/&title=Fluent Python - Chapter 1. The Python Data Model"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://alfmunny.github.io/2020/05/02/Chapter-1-The-Python-Data-Model/&title=Fluent Python - Chapter 1. The Python Data Model"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://alfmunny.github.io/2020/05/02/Chapter-1-The-Python-Data-Model/&title=Fluent Python - Chapter 1. The Python Data Model"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://alfmunny.github.io/2020/05/02/Chapter-1-The-Python-Data-Model/&name=Fluent Python - Chapter 1. The Python Data Model&description=&lt;p&gt;You can think of the data model as a description of Python as a framework. It formalizes the interfaces of the building blocks of the language itself, such as sequences, iterators, functions, classes, context managers, and so on.&lt;/p&gt;
+&lt;p&gt;Special methods: &lt;code&gt;__getitem__&lt;/code&gt; and &lt;code&gt;__len__&lt;/code&gt;.&lt;/p&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; collections&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Card = collections.namedtuple(&lt;span class=&#34;string&#34;&gt;&#39;Card&#39;&lt;/span&gt;, [&lt;span class=&#34;string&#34;&gt;&#39;rank&#39;&lt;/span&gt;, &lt;span class=&#34;string&#34;&gt;&#39;suit&#39;&lt;/span&gt;])&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;class&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;FrenchDeck&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    ranks = [str(n) &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; n &lt;span class=&#34;keyword&#34;&gt;in&lt;/span&gt; range(&lt;span class=&#34;number&#34;&gt;2&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;11&lt;/span&gt;)] + list(&lt;span class=&#34;string&#34;&gt;&#39;JQKA&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    suits = &lt;span class=&#34;string&#34;&gt;&#39;spades diamonds clubs hearts&#39;&lt;/span&gt;.split()&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;__init__&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(self)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        self._cards = [Card(rank, suit) &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; suit &lt;span class=&#34;keyword&#34;&gt;in&lt;/span&gt; self.suits &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; rank &lt;span class=&#34;keyword&#34;&gt;in&lt;/span&gt; self.ranks]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;__len__&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(self)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; len(self._cards)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;__getitem__&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(self, position)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; self._cards[position]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;code&gt;nametuple&lt;/code&gt; can be used to build classes of objects that are just bundles of attributes with no custom methods.&lt;/p&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;beer_card = Card(&lt;span class=&#34;string&#34;&gt;&#39;7&#39;&lt;/span&gt;, &lt;span class=&#34;string&#34;&gt;&#39;diamonds&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;beer_card&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;code&gt;len()&lt;/code&gt; function returns the number of cards in it.&lt;/p&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;deck = FrenchDeck()&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;len(deck)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;index operation, provided by &lt;code&gt;__getitem__&lt;/code&gt; method.&lt;/p&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;deck[&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;pre&gt;&lt;code&gt;Card(rank=&amp;apos;2&amp;apos;, suit=&amp;apos;spades&amp;apos;)&lt;/code&gt;&lt;/pre&gt;"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://alfmunny.github.io/2020/05/02/Chapter-1-The-Python-Data-Model/&t=Fluent Python - Chapter 1. The Python Data Model"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2020 Alfmunny
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/notes-blog/">~/</a></li>
+         
+          <li><a href="/notes-blog/about/">User</a></li>
+         
+          <li><a href="/notes-blog/notes">Notes</a></li>
+         
+          <li><a href="/notes-blog/archives/">Posts</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+<link rel="stylesheet" href="/notes-blog/lib/font-awesome/css/all.min.css">
+
+
+<link rel="stylesheet" href="/notes-blog/lib/justified-gallery/css/justifiedGallery.min.css">
+
+
+    <!-- jquery -->
+
+<script src="/notes-blog/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/notes-blog/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+  
+<script src="/notes-blog/lib/clipboard/clipboard.min.js"></script>
+
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/notes-blog/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>

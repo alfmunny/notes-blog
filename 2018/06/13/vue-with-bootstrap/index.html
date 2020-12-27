@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="Here is how to import boostrap in Vue. create the app123vue init webpack appcd appnpm run dev  install jquery, popper and boostrap1npm install jquery popper.js bootstrap --save webpackEdit in file bui">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue with Bootstrap">
+<meta property="og:url" content="http://alfmunny.github.io/2018/06/13/vue-with-bootstrap/index.html">
+<meta property="og:site_name" content="IN THE SHELL">
+<meta property="og:description" content="Here is how to import boostrap in Vue. create the app123vue init webpack appcd appnpm run dev  install jquery, popper and boostrap1npm install jquery popper.js bootstrap --save webpackEdit in file bui">
+<meta property="og:locale">
+<meta property="article:published_time" content="2018-06-13T18:09:57.000Z">
+<meta property="article:modified_time" content="2020-12-26T13:33:05.336Z">
+<meta property="article:author" content="Alfmunny">
+<meta property="article:tag" content="notes">
+<meta name="twitter:card" content="summary">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/notes-blog/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/notes-blog/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/notes-blog/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Vue with Bootstrap</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/notes-blog/css/style.css">
+
+    <!-- persian styles -->
+    
+      
+<link rel="stylesheet" href="/notes-blog/css/rtl.css">
+
+    
+    <!-- rss -->
+    
+    
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/notes-blog/">~/</a></li>
+         
+          <li><a href="/notes-blog/about/">User</a></li>
+         
+          <li><a href="/notes-blog/notes">Notes</a></li>
+         
+          <li><a href="/notes-blog/archives/">Posts</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/notes-blog/2020/05/02/Chapter-2-An-Array-of-Sequences/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/notes-blog/2018/04/30/tools-in-shell/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://alfmunny.github.io/2018/06/13/vue-with-bootstrap/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://alfmunny.github.io/2018/06/13/vue-with-bootstrap/&text=Vue with Bootstrap"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://alfmunny.github.io/2018/06/13/vue-with-bootstrap/&title=Vue with Bootstrap"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://alfmunny.github.io/2018/06/13/vue-with-bootstrap/&is_video=false&description=Vue with Bootstrap"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Vue with Bootstrap&body=Check out this article: http://alfmunny.github.io/2018/06/13/vue-with-bootstrap/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://alfmunny.github.io/2018/06/13/vue-with-bootstrap/&title=Vue with Bootstrap"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://alfmunny.github.io/2018/06/13/vue-with-bootstrap/&title=Vue with Bootstrap"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://alfmunny.github.io/2018/06/13/vue-with-bootstrap/&title=Vue with Bootstrap"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://alfmunny.github.io/2018/06/13/vue-with-bootstrap/&title=Vue with Bootstrap"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://alfmunny.github.io/2018/06/13/vue-with-bootstrap/&name=Vue with Bootstrap&description=&lt;p&gt;Here is how to import boostrap in Vue.&lt;/p&gt;
+&lt;h2 id=&#34;create-the-app&#34;&gt;&lt;a href=&#34;#create-the-app&#34; class=&#34;headerlink&#34; title=&#34;create the app&#34;&gt;&lt;/a&gt;create the app&lt;/h2&gt;&lt;figure class=&#34;highlight plain&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;vue init webpack app&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;cd app&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;npm run dev&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h2 id=&#34;install-jquery-popper-and-boostrap&#34;&gt;&lt;a href=&#34;#install-jquery-popper-and-boostrap&#34; class=&#34;headerlink&#34; title=&#34;install jquery, popper and boostrap&#34;&gt;&lt;/a&gt;install jquery, popper and boostrap&lt;/h2&gt;&lt;figure class=&#34;highlight plain&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;npm install jquery popper.js bootstrap --save&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&#34;webpack&#34;&gt;&lt;a href=&#34;#webpack&#34; class=&#34;headerlink&#34; title=&#34;webpack&#34;&gt;&lt;/a&gt;webpack&lt;/h2&gt;&lt;p&gt;Edit in file &lt;code&gt;build/webpack.base.conf.js&lt;/code&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight js&#34;&gt;&lt;figcaption&gt;&lt;span&gt;webpack.base.conf.js&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;module&lt;/span&gt;.exports = &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    entry: &amp;#123;&amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    output: &amp;#123;&amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    resolve: &amp;#123;&amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;built_in&#34;&gt;module&lt;/span&gt;: &amp;#123;&amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    plugins: [&lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; webpack.ProvidePlugin(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        jQuery: &lt;span class=&#34;string&#34;&gt;&#39;jquery&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        $: &lt;span class=&#34;string&#34;&gt;&#39;jquery&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        jquery: &lt;span class=&#34;string&#34;&gt;&#39;jquery&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#125;)]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h2 id=&#34;import-in-main-js&#34;&gt;&lt;a href=&#34;#import-in-main-js&#34; class=&#34;headerlink&#34; title=&#34;import in main.js&#34;&gt;&lt;/a&gt;import in main.js&lt;/h2&gt;&lt;figure class=&#34;highlight js&#34;&gt;&lt;figcaption&gt;&lt;span&gt;main.js&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;require&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&#39;bootstrap&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;require&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&#39;../node_modules/bootstrap/dist/css/bootstrap.min.css&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://alfmunny.github.io/2018/06/13/vue-with-bootstrap/&t=Vue with Bootstrap"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#create-the-app"><span class="toc-number">1.</span> <span class="toc-text">create the app</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#install-jquery-popper-and-boostrap"><span class="toc-number">2.</span> <span class="toc-text">install jquery, popper and boostrap</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#webpack"><span class="toc-number">3.</span> <span class="toc-text">webpack</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#import-in-main-js"><span class="toc-number">4.</span> <span class="toc-text">import in main.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#how-to-import-a-third-party-library"><span class="toc-number">5.</span> <span class="toc-text">how to import a third party library</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    
+        <h1 class="posttitle" >
+            Vue with Bootstrap
+    </h1>
+    
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <!--<span itemprop="name">IN THE SHELL</span>-->
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2018-06-13T18:09:57.000Z" itemprop="datePublished">2018-06-13</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/notes-blog/categories/posts/">posts</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/notes-blog/tags/notes/" rel="tag">notes</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>Here is how to import boostrap in Vue.</p>
+<h2 id="create-the-app"><a href="#create-the-app" class="headerlink" title="create the app"></a>create the app</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vue init webpack app</span><br><span class="line">cd app</span><br><span class="line">npm run dev</span><br></pre></td></tr></table></figure>
+
+<h2 id="install-jquery-popper-and-boostrap"><a href="#install-jquery-popper-and-boostrap" class="headerlink" title="install jquery, popper and boostrap"></a>install jquery, popper and boostrap</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install jquery popper.js bootstrap --save</span><br></pre></td></tr></table></figure>
+<h2 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h2><p>Edit in file <code>build/webpack.base.conf.js</code></p>
+<figure class="highlight js"><figcaption><span>webpack.base.conf.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    entry: &#123;&#125;,</span><br><span class="line">    output: &#123;&#125;,</span><br><span class="line">    resolve: &#123;&#125;,</span><br><span class="line">    <span class="built_in">module</span>: &#123;&#125;,</span><br><span class="line"></span><br><span class="line">    plugins: [<span class="keyword">new</span> webpack.ProvidePlugin(&#123;</span><br><span class="line">        jQuery: <span class="string">'jquery'</span>,</span><br><span class="line">        $: <span class="string">'jquery'</span>,</span><br><span class="line">        jquery: <span class="string">'jquery'</span></span><br><span class="line">    &#125;)]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="import-in-main-js"><a href="#import-in-main-js" class="headerlink" title="import in main.js"></a>import in main.js</h2><figure class="highlight js"><figcaption><span>main.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>(<span class="string">'bootstrap'</span>)</span><br><span class="line"><span class="built_in">require</span>(<span class="string">'../node_modules/bootstrap/dist/css/bootstrap.min.css'</span>)</span><br></pre></td></tr></table></figure>
+
+<p>Try the navbar in the app. It should work.</p>
+<h2 id="how-to-import-a-third-party-library"><a href="#how-to-import-a-third-party-library" class="headerlink" title="how to import a third party library"></a>how to import a third party library</h2><p>Take axios as an example</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install axios --save</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><figcaption><span>main.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">'axios'</span></span><br><span class="line"><span class="built_in">Object</span>.definePrototype(Vue.prototype, <span class="string">'$axios'</span>, &#123; <span class="attr">value</span>: axios &#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/notes-blog/">~/</a></li>
+         
+          <li><a href="/notes-blog/about/">User</a></li>
+         
+          <li><a href="/notes-blog/notes">Notes</a></li>
+         
+          <li><a href="/notes-blog/archives/">Posts</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#create-the-app"><span class="toc-number">1.</span> <span class="toc-text">create the app</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#install-jquery-popper-and-boostrap"><span class="toc-number">2.</span> <span class="toc-text">install jquery, popper and boostrap</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#webpack"><span class="toc-number">3.</span> <span class="toc-text">webpack</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#import-in-main-js"><span class="toc-number">4.</span> <span class="toc-text">import in main.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#how-to-import-a-third-party-library"><span class="toc-number">5.</span> <span class="toc-text">how to import a third party library</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://alfmunny.github.io/2018/06/13/vue-with-bootstrap/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://alfmunny.github.io/2018/06/13/vue-with-bootstrap/&text=Vue with Bootstrap"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://alfmunny.github.io/2018/06/13/vue-with-bootstrap/&title=Vue with Bootstrap"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://alfmunny.github.io/2018/06/13/vue-with-bootstrap/&is_video=false&description=Vue with Bootstrap"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Vue with Bootstrap&body=Check out this article: http://alfmunny.github.io/2018/06/13/vue-with-bootstrap/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://alfmunny.github.io/2018/06/13/vue-with-bootstrap/&title=Vue with Bootstrap"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://alfmunny.github.io/2018/06/13/vue-with-bootstrap/&title=Vue with Bootstrap"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://alfmunny.github.io/2018/06/13/vue-with-bootstrap/&title=Vue with Bootstrap"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://alfmunny.github.io/2018/06/13/vue-with-bootstrap/&title=Vue with Bootstrap"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://alfmunny.github.io/2018/06/13/vue-with-bootstrap/&name=Vue with Bootstrap&description=&lt;p&gt;Here is how to import boostrap in Vue.&lt;/p&gt;
+&lt;h2 id=&#34;create-the-app&#34;&gt;&lt;a href=&#34;#create-the-app&#34; class=&#34;headerlink&#34; title=&#34;create the app&#34;&gt;&lt;/a&gt;create the app&lt;/h2&gt;&lt;figure class=&#34;highlight plain&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;vue init webpack app&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;cd app&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;npm run dev&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h2 id=&#34;install-jquery-popper-and-boostrap&#34;&gt;&lt;a href=&#34;#install-jquery-popper-and-boostrap&#34; class=&#34;headerlink&#34; title=&#34;install jquery, popper and boostrap&#34;&gt;&lt;/a&gt;install jquery, popper and boostrap&lt;/h2&gt;&lt;figure class=&#34;highlight plain&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;npm install jquery popper.js bootstrap --save&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&#34;webpack&#34;&gt;&lt;a href=&#34;#webpack&#34; class=&#34;headerlink&#34; title=&#34;webpack&#34;&gt;&lt;/a&gt;webpack&lt;/h2&gt;&lt;p&gt;Edit in file &lt;code&gt;build/webpack.base.conf.js&lt;/code&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight js&#34;&gt;&lt;figcaption&gt;&lt;span&gt;webpack.base.conf.js&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;module&lt;/span&gt;.exports = &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    entry: &amp;#123;&amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    output: &amp;#123;&amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    resolve: &amp;#123;&amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;built_in&#34;&gt;module&lt;/span&gt;: &amp;#123;&amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    plugins: [&lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; webpack.ProvidePlugin(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        jQuery: &lt;span class=&#34;string&#34;&gt;&#39;jquery&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        $: &lt;span class=&#34;string&#34;&gt;&#39;jquery&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        jquery: &lt;span class=&#34;string&#34;&gt;&#39;jquery&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#125;)]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h2 id=&#34;import-in-main-js&#34;&gt;&lt;a href=&#34;#import-in-main-js&#34; class=&#34;headerlink&#34; title=&#34;import in main.js&#34;&gt;&lt;/a&gt;import in main.js&lt;/h2&gt;&lt;figure class=&#34;highlight js&#34;&gt;&lt;figcaption&gt;&lt;span&gt;main.js&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;require&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&#39;bootstrap&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;require&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&#39;../node_modules/bootstrap/dist/css/bootstrap.min.css&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://alfmunny.github.io/2018/06/13/vue-with-bootstrap/&t=Vue with Bootstrap"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2020 Alfmunny
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/notes-blog/">~/</a></li>
+         
+          <li><a href="/notes-blog/about/">User</a></li>
+         
+          <li><a href="/notes-blog/notes">Notes</a></li>
+         
+          <li><a href="/notes-blog/archives/">Posts</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+<link rel="stylesheet" href="/notes-blog/lib/font-awesome/css/all.min.css">
+
+
+<link rel="stylesheet" href="/notes-blog/lib/justified-gallery/css/justifiedGallery.min.css">
+
+
+    <!-- jquery -->
+
+<script src="/notes-blog/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/notes-blog/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+  
+<script src="/notes-blog/lib/clipboard/clipboard.min.js"></script>
+
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/notes-blog/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>
